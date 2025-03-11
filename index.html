@@ -11,15 +11,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;600&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="row encabezado">
+  <!-- navbar -->
+  <header class="encabezado"> 
     <div class="col-6 col-sm-12 col-md-3 col-lg-4 text-center">
-      <h1 class="col nombre">Santigo Bedoya</h1>
-    </div>
-    <div class="col-6 col-sm-12 col-md-9 col-lg-8 text-center">
-      <nav class="navbar">
-        <ul class="nav justify-content-center">
+      <h1 class="col nombre">Santiago Bedoya</h1>
+      <span class="codigo-cafe">Código & Café</span>
+    </div>  
+    <div class="text-center">
+      <nav class="navbar nav-menu">
+        <ul class="nav">
           <li class="nav-item">
             <a class="nav-enlace" href="index.html">Inicio</a>
           </li>
@@ -33,30 +36,31 @@
             <a class="nav-enlace" href="contacto.html">Contacto</a>
           </li>
         </ul>
+        <span class="menu-toggle">&#9776;</span>
       </nav>
     </div>   
-  </header>
+</header>
   <main class="fondo">
     <section class="row">
       <div class="col-12">
         <h2 class="titulo col-lg-12">
-          Hola soy tu desarrollador web.. Santiago BedoCo
+          Hola soy tu desarrollador web, Santiago Bedoya Corrales
         </h2>
         <div class="row">
           <div class="col-lg-6">
             <p class="description">
-              Estudio actualmente desarrollo de software enfocado al desarrollo web... Me apaciona el mundo tecnologico desde la 
-              crecion de sitios enfocado a las areas de; fronted, backend y manejo de base de datos
+              Estudio actualmente desarrollo de software enfocado al desarrollo web... Me apasiona el mundo tecnologico desde la 
+              creación de sitios enfocado a las areas de; frontend, backend y manejo de base de datos
             </p>
             <p class="hobbits">
-              Me gusta la lectura &#x1F4D5; &#x1F4D6;, Escuchar musica &#x1F3B5;, Hacer ejercicio &#x1F3C3; &#x1F3CB;
+              Me gusta la lectura &#x1F4D5; &#x1F4D6;, Escuchar música &#x1F3B5;, Hacer ejercicio &#x1F3C3; &#x1F3CB;
               y Aprender nuevas habilidades &#x1F393;.
             </p>
           </div>
           <div class="col-12 col-lg-6 text-center">
             <img src="img/foto.png" class="foto-perfil" alt="perfil">
             <p class="tecnologia">
-              Software Developmet Analysis
+              Software Development Analysis
             </p>
           </div>
         </div>
@@ -151,5 +155,14 @@
     </p>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+ 
+  <!-- script del navbar bumguer -->
+ <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+        document.querySelector('.nav-menu ul').classList.toggle('active');
+    });
+});
+  </script>
 </body>
 </html>

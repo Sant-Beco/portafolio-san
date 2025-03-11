@@ -32,33 +32,36 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;600&family=Lato:wght@400;700&display=swap" rel="stylesheet">
   </head>
 
   <body>
-    <header class="row encabezado">
-      <div class="col-6 col-sm-12 col-md-3 col-lg-4 text-center">
-        <h1 class="col nombre">Santigo Bedoya</h1>
-      </div>
-      <div class="col-6 col-sm-12 col-md-9 col-lg-8 text-center">
-        <nav class="navbar">
-          <ul class="nav justify-content-center">
-            <li class="nav-item">
-              <a class="nav-enlace" href="index.html">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-enlace" href="proyectos.html">Proyectos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-enlace" href="herramientas.html">Herramientas</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-enlace" href="contacto.html">Contacto</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      
-    </header>
+    <!-- navbar -->
+  <header class="encabezado"> 
+    <div class="col-6 col-sm-12 col-md-3 col-lg-4 text-center">
+      <h1 class="col nombre">Santiago Bedoya</h1>
+      <span class="codigo-cafe">Código & Café</span>
+    </div>  
+    <div class="text-center">
+      <nav class="navbar nav-menu">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-enlace" href="index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-enlace" href="proyectos.html">Proyectos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-enlace" href="herramientas.html">Herramientas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-enlace" href="contacto.html">Contacto</a>
+          </li>
+        </ul>
+        <span class="menu-toggle">&#9776;</span>
+      </nav>
+    </div>   
+</header>
 
     <!-- ------------------------CONTENIDO CAMBIANTE------------------------------- -->
 
@@ -356,6 +359,13 @@
       <p class="mt-2"><strong>&copy; 2024 Portafolio Web Development - Todos los derechos reservados</strong>
       </p>
     </div>
-
+    <!-- script del navbar bumguer -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+      document.querySelector('.menu-toggle').addEventListener('click', function() {
+          document.querySelector('.nav-menu ul').classList.toggle('active');
+      });
+    });
+    </script>
   </body>
 </html>
