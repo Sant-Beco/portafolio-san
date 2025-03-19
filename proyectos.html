@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Proyectos</title>
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Mantén o ajusta las tipografías que uses -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;600&display=swap"
       rel="stylesheet"
     />
 
@@ -18,270 +20,139 @@
     />
 
     <link rel="icon" href="img/Logo.png" />
+    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="proyectos.css" />
-    <link rel="stylesheet" href="style.css">
 
+    <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;600&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
   </head>
 
   <body>
-    <!-- navbar -->
-  <header class="encabezado"> 
-    <div class="col-6 col-sm-12 col-md-3 col-lg-4 text-center">
-      <h1 class="col nombre">Santiago Bedoya</h1>
-      <span class="codigo-cafe">Código & Café</span>
-    </div>  
-    <div class="text-center">
-      <nav class="navbar nav-menu">
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-enlace" href="index.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-enlace" href="proyectos.html">Proyectos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-enlace" href="herramientas.html">Herramientas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-enlace" href="contacto.html">Contacto</a>
-          </li>
-        </ul>
-        <span class="menu-toggle">&#9776;</span>
-      </nav>
-    </div>   
-</header>
+    <!-- ========================== NAVBAR ========================== -->
+    <header class="encabezado">
+      <div class="col-6 col-sm-12 col-md-3 col-lg-4 text-center">
+        <h1 class="col nombre">Santiago Bedoya</h1>
+        <span class="codigo-cafe">Código & Café</span>
+      </div>
+      <div class="text-center">
+        <nav class="navbar nav-menu">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-enlace" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-enlace" href="proyectos.html">Proyectos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-enlace" href="herramientas.html">Herramientas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-enlace" href="contacto.html">Contacto</a>
+            </li>
+          </ul>
+          <span class="menu-toggle">&#9776;</span>
+        </nav>
+      </div>
+    </header>
 
-    <!-- ------------------------CONTENIDO CAMBIANTE------------------------------- -->
-
-      <h4 class="slogan fondo titulo" style="margin-bottom: 0;">
-        Pasiòn por el <<em><strong>Còdigo</strong></em>>
+    <!-- ========================== TÍTULO ========================== -->
+    <section class="seccion-titulo text-center">
+      <h4 class="titulo">
+        Pasión por el <em><strong>Código</strong></em>
       </h4>
+    </section>
+
+    <!-- ========================== PROYECTOS ========================== -->
     <main class="contenido">
-      <div class="card tarjeta" style="width: 18rem">
+      <!-- Tarjeta 1 -->
+      <div class="tarjeta">
         <img
           src="img/logo-cultural.png"
           class="card-img-top"
           alt="imagen de proyecto"
         />
         <div class="card-body">
-          <h5 class="card-title text-center"><strong><em>Cultural Expression</em></strong></h5>
+          <h5 class="card-title text-center">
+            <strong><em>Cultural Expression</em></strong>
+          </h5>
           <p class="card-text">
             Red Social contribuyente a la cultura, arte y deporte del municipio
             de Tamesis Antioquia.
           </p>
         </div>
-
         <div class="card-body info-especifica">
-          <a href="#" class="card-link">Creditos</a>
-          <a href="#" class="card-link">Link Proyecto</a>
+          <a href="#" class="btn-custom">Créditos</a>
+          <a href="#" class="btn-custom">Link Proyecto</a>
         </div>
       </div>
 
-      <div class="card tarjeta" style="width: 18rem">
+      <!-- Tarjeta 2 -->
+      <div class="tarjeta">
         <img
           src="img/proyecto.png"
           class="card-img-top"
           alt="imagen de proyecto"
         />
         <div class="card-body">
-          <h5 class="card-title text-center"><strong><em>Portafolio</em></strong></h5>
+          <h5 class="card-title text-center">
+            <strong><em>Portafolio</em></strong>
+          </h5>
           <p class="card-text">
-            Un portafolio web en el cual dos desarrolladores se unen para crearlo y poder publicar sus proyectos
-            realizados
+            Un portafolio web en el cual dos desarrolladores se unen para
+            publicarlo y mostrar sus proyectos realizados.
           </p>
         </div>
-
         <div class="card-body info-especifica">
-          <a href="#" class="card-link">Creditos</a>
-          <a href="#" class="card-link">Link Proyecto</a>
+          <a href="#" class="btn-custom">Créditos</a>
+          <a href="#" class="btn-custom">Link Proyecto</a>
         </div>
       </div>
 
-      <div class="card tarjeta" style="width: 18rem">
+      <!-- Tarjeta 3 -->
+      <div class="tarjeta">
         <img
           src="img/alas uno.jpg"
           class="card-img-top"
           alt="imagen de proyecto"
         />
         <div class="card-body">
-          <h5 class="card-title text-center"><strong><em>Project and Task Django</em></strong></h5>
+          <h5 class="card-title text-center">
+            <strong><em>Project and Task Django</em></strong>
+          </h5>
           <p class="card-text">
-            Proyecto creado con Django, Html, Css para practicar lo aprendido
+            Proyecto creado con Django, HTML y CSS para practicar lo aprendido.
           </p>
         </div>
-
         <div class="card-body info-especifica">
-          <a href="#" class="card-link">Creditos</a>
-          <a href="#" class="card-link">Link Proyecto</a>
+          <a href="#" class="btn-custom">Créditos</a>
+          <a href="#" class="btn-custom">Link Proyecto</a>
         </div>
       </div>
 
-      <div class="card tarjeta" style="width: 18rem">
-        <img
-          src="img/proyecto.png"
-          class="card-img-top"
-          alt="imagen de proyecto"
-        />
-        <div class="card-body">
-          <h5 class="card-title text-center"><strong><em>Portafolio</em></strong></h5>
-          <p class="card-text">
-            Un portafolio web en el cual dos desarrolladores se unen para crearlo y poder publicar sus proyectos
-            realizados
-          </p>
-        </div>
-
-        <div class="card-body info-especifica">
-          <a href="#" class="card-link">Creditos</a>
-          <a href="#" class="card-link">Link Proyecto</a>
-        </div>
-      </div>
-
-      <div class="card tarjeta" style="width: 18rem">
-        <img
-          src="img/logo-cultural.png"
-          class="card-img-top"
-          alt="imagen de proyecto"
-        />
-        <div class="card-body">
-          <h5 class="card-title text-center"><strong><em>Cultural Expression</em></strong></h5>
-          <p class="card-text">
-            Red Social contribuyente a la cultura, arte y deporte del municipio
-            de Tamesis Antioquia.
-          </p>
-        </div>
-
-        <div class="card-body info-especifica">
-          <a href="#" class="card-link">Creditos</a>
-          <a href="#" class="card-link">Link Proyecto</a>
-        </div>
-      </div>
-
-      <div class="card tarjeta" style="width: 18rem">
-        <img
-          src="img/proyecto.png"
-          class="card-img-top"
-          alt="imagen de proyecto"
-        />
-        <div class="card-body">
-          <h5 class="card-title text-center"><strong><em>Portafolio</em></strong></h5>
-          <p class="card-text">
-            Un portafolio web en el cual dos desarrolladores se unen para crearlo y poder publicar sus proyectos
-            realizados
-          </p>
-        </div>
-
-        <div class="card-body info-especifica">
-          <a href="#" class="card-link">Creditos</a>
-          <a href="#" class="card-link">Link Proyecto</a>
-        </div>
-      </div>
-
-      <div class="card tarjeta" style="width: 18rem">
-        <img
-          src="img/logo-cultural.png"
-          class="card-img-top"
-          alt="imagen de proyecto"
-        />
-        <div class="card-body">
-          <h5 class="card-title text-center"><strong><em>Cultural Expression</em></strong></h5>
-          <p class="card-text">
-            Red Social contribuyente a la cultura, arte y deporte del municipio
-            de Tamesis Antioquia.
-          </p>
-        </div>
-
-        <div class="card-body info-especifica">
-          <a href="#" class="card-link">Creditos</a>
-          <a href="#" class="card-link">Link Proyecto</a>
-        </div>
-      </div>
-
-      <div class="card tarjeta" style="width: 18rem">
-        <img
-          src="img/proyecto.png"
-          class="card-img-top"
-          alt="imagen de proyecto"
-        />
-        <div class="card-body">
-          <h5 class="card-title text-center"><strong><em>Portafolio</em></strong></h5>
-          <p class="card-text">
-            Un portafolio web en el cual dos desarrolladores se unen para crearlo y poder publicar sus proyectos
-            realizados
-          </p>
-        </div>
-
-        <div class="card-body info-especifica">
-          <a href="#" class="card-link">Creditos</a>
-          <a href="#" class="card-link">Link Proyecto</a>
-        </div>
-      </div>
-
-      <div class="card tarjeta" style="width: 18rem">
-        <img
-          src="img/logo-cultural.png"
-          class="card-img-top"
-          alt="imagen de proyecto"
-        />
-        <div class="card-body">
-          <h5 class="card-title text-center"><strong><em>Cultural Expression</em></strong></h5>
-          <p class="card-text">
-            Red Social contribuyente a la cultura, arte y deporte del municipio
-            de Tamesis Antioquia.
-          </p>
-        </div>
-
-        <div class="card-body info-especifica">
-          <a href="#" class="card-link">Creditos</a>
-          <a href="#" class="card-link">Link Proyecto</a>
-        </div>
-      </div>
-
-      <div class="card tarjeta" style="width: 18rem">
-        <img
-          src="img/proyecto.png"
-          class="card-img-top"
-          alt="imagen de proyecto"
-        />
-        <div class="card-body">
-          <h5 class="card-title text-center"><strong><em>Portafolio</em></strong></h5>
-          <p class="card-text">
-            Un portafolio web en el cual dos desarrolladores se unen para crearlo y poder publicar sus proyectos
-            realizados
-          </p>
-        </div>
-
-        <div class="card-body info-especifica">
-          <a href="#" class="card-link">Creditos</a>
-          <a href="#" class="card-link">Link Proyecto</a>
-        </div>
-      </div>
-
-
+      <!-- Más tarjetas ... -->
+      <!-- Repite la estructura de las tarjetas según tus proyectos -->
     </main>
 
-    <!-- ------------------------FOOTER------------------------------- -->
-
+    <!-- ========================== FOOTER ========================== -->
     <footer class="pie-pagina bg-dark text-white py-4">
       <div class="container">
         <div class="row align-items-center">
-    
           <!-- Logo -->
           <div class="col-12 col-sm-6 col-lg-4 text-center mb-3">
-            <img src="img/fondo-footer.png" alt="Corazón ardiendo" class="img-fluid" style="max-width: 150px;">
+            <img
+              src="img/fondo-footer.png"
+              alt="Corazón ardiendo"
+              class="img-fluid"
+              style="max-width: 150px;"
+            />
           </div>
-    
+
           <!-- Redes Sociales -->
           <nav class="col-12 col-sm-6 col-lg-4 text-center mb-3">
             <ul class="list-inline social-links m-0">
@@ -302,31 +173,47 @@
               </li>
             </ul>
           </nav>
-    
+
           <!-- Información de contacto -->
           <article class="col-12 col-lg-4 text-center mb-3">
             <h5><strong>Equipo</strong></h5>
             <p class="mb-1">Santiago Bedoya Corrales</p>
-            <p class="mb-0"><i class="bi bi-telephone"></i> +57 3246376012</p>
+            <p class="mb-0">
+              <i class="bi bi-telephone"></i> +57 3246376012
+            </p>
           </article>
         </div>
-    
-        <hr class="border-light my-3">
-    
+
+        <hr class="border-light my-3" />
+
         <!-- Derechos Reservados -->
         <div class="text-center text-reservado">
-          <p class="m-0"><strong>&copy; 2024 Portafolio Web Development - Todos los derechos reservados</strong></p>
+          <p class="m-0">
+            <strong
+              >&copy; 2024 Portafolio Web Development - Todos los derechos
+              reservados</strong
+            >
+          </p>
         </div>
       </div>
     </footer>
-    
+
     <!-- script del navbar bumguer -->
     <script>
-      document.addEventListener("DOMContentLoaded", function() {
-      document.querySelector('.menu-toggle').addEventListener('click', function() {
-          document.querySelector('.nav-menu ul').classList.toggle('active');
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .querySelector(".menu-toggle")
+          .addEventListener("click", function () {
+            document.querySelector(".nav-menu ul").classList.toggle("active");
+          });
       });
-    });
     </script>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

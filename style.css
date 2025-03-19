@@ -155,7 +155,7 @@ html, body {
 /* cuerpo inicio */
 
 main{
-  background: #18a0aa;
+  background: #1e1e1e;
 }
 
 .foto-perfil{
@@ -165,11 +165,14 @@ main{
 }
 
 .titulo{
+  display: block;
   font-family: 'Montserrat', sans-serif;
   text-align: center;
   font-size: 50px;
   font-weight: bold;
   color: #fff;
+  background-color: #1e1e1e;
+  margin-bottom: 0;
 }
 
 .description{
@@ -194,11 +197,12 @@ main{
 
 /* proyectos */
 
-.contenido{
+.contenido {
   display: grid;
-  gap: 1.75rem;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  flex-wrap: wrap;
+  gap: 2rem; /* Espacio entre tarjetas */
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas en pantallas grandes */
+  justify-items: center; /* Centra las tarjetas en cada columna */
+  padding: 20px;
   background: #1e1e1e;
   background-size: cover;
   background-position: center center;
@@ -206,54 +210,47 @@ main{
   background-attachment: fixed;
 }
 
-.fondo{
-  background: #1e1e1e;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+
+
+/* Para pantallas medianas (tablets, laptops pequeños) */
+@media (max-width: 1200px) {
+  .contenido {
+    grid-template-columns: repeat(2, 1fr); /* Pasa a 2 columnas */
+  }
 }
 
-.subtitulo-proyectos{
-  font-family: 'Montserrat', sans-serif;
-  font-size: 30px;
-  padding: 30px;
+/* Para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+  .contenido {
+    grid-template-columns: 1fr; /* Pasa a 1 columna */
+  }
 }
 
-.slogan{
-  color: #000;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 40px;
-  padding-top: 30px;
+/* Estilos de la tarjeta */
+.tarjeta {
+  width: 100%;            /* Ocupará todo el espacio de la columna */
+  max-width: 500px;       /* Controla el ancho máximo de la tarjeta */
+  min-height: 450px;      /* Altura mínima para hacerlas más grandes */
+  background-color: #2C2C2C;
+  color: #fff;
+  border-radius: 10px;
+  font-family: "Pompiere", sans-serif;
+  box-shadow: 0 4px 8px #00000033;
+  transition: all 0.3s ease-in-out;
+  padding: 20px;          /* Espacio interno para separar contenido de los bordes */
+  margin-top: 20px;
 }
 
-.tarjeta{
-  margin-top: 50px;
-  margin-left: 20px;
-  margin-right: 20px;
-  font-family: pompiere;
-}
-
-.tarjeta:hover{
+.tarjeta:hover {
   box-shadow: 5px 5px 20px #00000066;
   transform: translateY(-3%);
 }
 
-.info{
-  background-color: #ffffff;
-}
 
-.card-link{
+.card-link {
   color: #000fe2;
   font-size: 19px;
   font-family: 'Montserrat', sans-serif;
-}
-
-.info-especifica{
-  background-color: #ffffff;
 }
 
 /* form contacto */
