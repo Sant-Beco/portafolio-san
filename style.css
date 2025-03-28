@@ -423,3 +423,15 @@ main{
 .main-herramientas section{
   padding: 10px;
 }
+
+
+@media (max-width: 768px) {
+  .formulario {
+    margin: 5%;
+  }
+
+  .fondo-footer{
+    background: #1e1e1e;
+  }
+  
+}
