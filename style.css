@@ -1,4 +1,4 @@
-/*                     Global                     */
+/* ================= GLOBAL ================= */
 
 * {
   margin: 0;
@@ -7,23 +7,32 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-html, body {
-  overflow-x: hidden;
-  background-color: #1e1e1e;
-  color: #ffffff;
+html {
+  scroll-behavior: smooth;
 }
 
-/*                     Encabezado                     */
+/* 🌗 Dark / Light automático */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #1e1e1e;
+    color: #ffffff;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background: #f4f4f4;
+    color: #111;
+  }
+}
+
+/* ================= HEADER ================= */
 
 .encabezado {
   padding: 20px 40px;
-  background-color: #1e1e1e;
-  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 28px;
 }
 
 .encabezado ul {
@@ -31,173 +40,183 @@ html, body {
   list-style: none;
 }
 
-.encabezado ul li a {
-  color: #eaeaea;
+.nav-item {
+  padding: 0 12px;
+}
+
+.encabezado a {
   text-decoration: none;
-  font-size: 18px;
-  transition: color 0.3s ease-in-out;
+  color: inherit;
+  opacity: 0.8;
 }
 
-.encabezado ul li a:hover {
+.encabezado a:hover {
   color: #00adb5;
-  text-decoration: underline;
-}
-
-.nav-item{
-  padding: 20px 10px;
 }
 
 .nombre {
-  font-size: 28px;
-  color: #eaeaea;
-  font-weight: bold;
-  transition: color 0.3s ease-in-out;
-  text-align: center;
-}
-
-.nombre:hover {
-  color: #00adb5;
+  font-weight: 700;
+  font-size: 24px;
 }
 
 .codigo-cafe {
-  color: #eaeaea;
-  font-size: 18px;
-  margin-top: 5px;
+  font-size: 13px;
+  opacity: 0.6;
 }
 
-.codigo-cafe:hover {
-  color: #00adb5;
-}
+/* ================= HERO ================= */
 
-/*                    Footer                    */
-
-.pie-pagina{
-  color: white;
-  background-color: #1e1e1e;
+.hero {
+  min-height: 85vh;
   display: flex;
-  text-align: center;
   justify-content: center;
-  padding-top: 20px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.redes{
-  color: #fff;
-  text-decoration: none;
-  margin: 60px 20px;
-
-}
-
-.enlace-footer{
-  text-decoration: none;
-}
-
-.bi-facebook{
-  color: #3b5998;
-}
-
-.bi-facebook:hover{
-  color: #072057;
-}
-
-.bi-instagram{
-  color: #e241ba;
-}
-
-.bi-instagram:hover{
-  color: #5f0649;
-}
-
-.bi-whatsapp{
-  color: #25D366;
-}
-
-.bi-whatsapp:hover{
-  color: #075c26;
-  border-radius: 50px;
-}
-
-.equipo{
-  font-size: 20px;
-  font-family: 'Montserrat', sans-serif;
-}
-
-
-.text-reservado{
+.hero-content {
   text-align: center;
-  color: #fff;
-  background-color: #1e1e1e;
+  z-index: 2;
+  max-width: 700px;
 }
 
-.icono-footer{
-  width: 300px;
-  height: 160px;
+/* FOTO PERFIL MEJORADA */
+
+.foto-container {
+  width: 170px;
+  height: 170px;
+  margin: 0 auto 32px;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, #00adb5, #007c82);
+  animation: flotar 4s ease-in-out infinite;
+  box-shadow: 0 0 25px rgba(0, 173, 181, 0.35);
 }
+
+.foto-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  /* 👇 CLAVE para que el rostro se vea mejor */
+  object-position: center 25%;
+
+  border-radius: 50%;
+
+  /* Mejora visual */
+  filter: brightness(1.05) contrast(1.05) saturate(1.05);
+}
+
+
+@keyframes flotar {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* TEXTO HERO */
+.nombre-animado {
+  font-size: 4rem;
+  letter-spacing: 0.2em;
+}
+
+.nombre-animado span {
+  opacity: 0;
+  display: inline-block;
+  animation: aparecer 0.6s forwards;
+  animation-delay: calc(0.1s * var(--i));
+}
+
+@keyframes aparecer {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.lema {
+  margin-top: 15px;
+  color: #00adb5;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.intro {
+  margin-top: 15px;
+  opacity: 0.8;
+}
+
+/* HILOS */
+.hilos span {
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, #00adb5, transparent);
+  opacity: 0.3;
+  animation: hilo 6s infinite;
+}
+
+.hilos span:nth-child(1) { left: 30%; }
+.hilos span:nth-child(2) { left: 50%; animation-delay: 2s; }
+.hilos span:nth-child(3) { left: 70%; animation-delay: 4s; }
+
+@keyframes hilo {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(100%); }
+}
+
+/* ================= SECCIONES ================= */
+
+.seccion {
+  padding: 120px 40px;
+}
+
+.contenido {
+  max-width: 900px;
+  margin: auto;
+}
+
+.titulo {
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  opacity: 0.85;
+}
+
+/* ANIMACIÓN SCROLL */
+.animar {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.animar.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= FOOTER ================= */
 
 .pie-pagina {
-  background-color: #1e1e1e; /* Color oscuro */
-  color: white;
-}
-
-.enlace-footer {
-  transition: transform 0.3s ease-in-out;
-}
-
-.enlace-footer:hover {
-  transform: scale(1.2);
-  color: #f8d210; /* Color destacado */
-}
-
-.icono-footer {
-  filter: brightness(0) invert(1); /* Hace que el logo sea blanco si es necesario */
-}
-
-.text-reservado {
+  text-align: center;
+  padding: 30px;
+  opacity: 0.6;
   font-size: 0.9rem;
 }
 
+/* ================= RESPONSIVE ================= */
 
-/* cuerpo inicio */
-
-main{
-  background: #1e1e1e;
+@media (max-width: 768px) {
+  .nombre-animado {
+    font-size: 2.8rem;
+  }
 }
 
-.foto-perfil{
-  width: 360px;
-  border-radius: 300px;
-  text-align: center;
-}
 
-.titulo{
-  display: block;
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  font-size: 50px;
-  font-weight: bold;
-  color: #fff;
-  background-color: #1e1e1e;
-  margin-bottom: 0;
-}
-
-.description{
-  font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
-  margin: 60px 40px;
-  color: #fff;
-}
-
-.tecnologia{
-  font-family: 'Montserrat', sans-serif;
-  font-size: 24px;
-  color: #fff;
-}
-
-.hobbits{
-  font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
-  color: #fff;
-  margin: 60px 40px;
-}
 
 /* proyectos */
 
