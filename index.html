@@ -3,110 +3,448 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Santiago Bedoya | Desarrollador</title>
-
+  <title>Santiago Bedoya | Artesano de Código</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<header class="encabezado">
-  <div>
-    <div class="nombre">Santiago</div>
-    <div class="codigo-cafe">Código • Datos • Web</div>
+<!-- THEME TOGGLE -->
+<button class="theme-toggle" aria-label="Cambiar tema">
+  <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <circle cx="12" cy="12" r="5"/>
+    <line x1="12" y1="1" x2="12" y2="3"/>
+    <line x1="12" y1="21" x2="12" y2="23"/>
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+    <line x1="1" y1="12" x2="3" y2="12"/>
+    <line x1="21" y1="12" x2="23" y2="12"/>
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+  </svg>
+  <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+  </svg>
+</button>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="logo-icon">⚒️</span>
+    <span>Santiago</span>
   </div>
-  <nav>
-    <ul>
-      <li class="nav-item"><a href="#sobre">Sobre mí</a></li>
-      <li class="nav-item"><a class="nav-enlace" href="proyectos.html">Proyectos</a></li>
-      <li class="nav-item"><a class="nav-enlace" href="herramientas.html">Herramientas</a></li>
-      <li class="nav-item"><a class="nav-enlace" href="contacto.html">Contacto</a></li>
-    </ul>
-  </nav>
-</header>
+  <ul class="nav-menu">
+    <li><a href="#hero">Inicio</a></li>
+    <li><a href="#herramientas">Herramientas</a></li>
+    <li><a href="#proyectos">Proyectos</a></li>
+    <li><a href="#experiencia">Experiencia</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <button class="menu-burger" aria-label="Menú">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hilos">
-    <span></span><span></span><span></span>
+<section id="hero" class="hero">
+  <div class="hero-bg">
+    <div class="gear gear-1">⚙️</div>
+    <div class="gear gear-2">⚙️</div>
+    <div class="gear gear-3">⚙️</div>
   </div>
 
   <div class="hero-content">
-    <div class="foto-container">
-      <img src="img/foto.png" alt="Foto de Santiago">
+    <div class="craft-badge">
+      <span>✨ Artesano de Código</span>
     </div>
 
-    <h1 class="nombre-animado">
-      <span style="--i:1">S</span>
-      <span style="--i:2">A</span>
-      <span style="--i:3">N</span>
-      <span style="--i:4">T</span>
-      <span style="--i:5">I</span>
-      <span style="--i:6">A</span>
-      <span style="--i:7">G</span>
-      <span style="--i:8">O</span>
+    <h1 class="hero-title">
+      <span class="title-line">Construyendo</span>
+      <span class="title-line title-highlight">Soluciones</span>
+      <span class="title-line">con Código</span>
     </h1>
 
-    <p class="lema">Desarrollador orientado a soluciones reales</p>
-    <p class="intro">
-      Creo software funcional, limpio y escalable.  
-      Me enfoco en resolver problemas con lógica, datos y diseño simple.
+    <p class="hero-subtitle">
+      Backend • Datos • Sistemas
     </p>
+
+    <div class="hero-tools">
+      <div class="tool-icon">🔨</div>
+      <div class="tool-icon">🔧</div>
+      <div class="tool-icon">⚡</div>
+      <div class="tool-icon">🛠️</div>
+    </div>
+
+    <div class="hero-cta">
+      <a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
+      <a href="#cv-download" class="btn btn-secondary">Descargar CV</a>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <span>Explora</span>
+    <div class="scroll-arrow">↓</div>
   </div>
 </section>
 
-<!-- SOBRE MI -->
-<section id="sobre" class="seccion animar">
-  <div class="contenido">
-    <h2 class="titulo">Sobre mí</h2>
-    <p class="description">
-      Soy desarrollador con interés fuerte en <strong>backend, datos y seguridad</strong>.
-      He trabajado con Django, Git, Linux y bases de datos relacionales.
-      Me adapto rápido, aprendo por proyectos y priorizo escribir código claro y mantenible.
-    </p>
+<!-- VALORES -->
+<section class="valores">
+  <div class="container">
+    <div class="valores-grid">
+      <div class="valor-card">
+        <div class="valor-icon">🎯</div>
+        <h3>Resolución de Problemas</h3>
+        <p>Analizo, diseño y ejecuto soluciones efectivas</p>
+      </div>
+      <div class="valor-card">
+        <div class="valor-icon">⏱️</div>
+        <h3>Puntualidad</h3>
+        <p>Comprometido con los tiempos y entregas</p>
+      </div>
+      <div class="valor-card">
+        <div class="valor-icon">🤝</div>
+        <h3>Buena Disposición</h3>
+        <p>Colaborativo, proactivo y adaptable</p>
+      </div>
+      <div class="valor-card">
+        <div class="valor-icon">📈</div>
+        <h3>Mejora Continua</h3>
+        <p>Aprendiendo y evolucionando constantemente</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HERRAMIENTAS - CAJA DE HERRAMIENTAS VISUAL -->
+<section id="herramientas" class="herramientas">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">
+        <span class="title-icon">🧰</span>
+        Caja de Herramientas
+      </h2>
+      <p class="section-subtitle">Tecnologías que domino para construir soluciones</p>
+    </div>
+
+    <div class="toolbox">
+      <div class="toolbox-section">
+        <h3 class="toolbox-title">Backend & Frameworks</h3>
+        <div class="tools-grid">
+          <div class="tool-item" data-skill="70">
+            <div class="tool-visual">
+              <span class="tool-emoji">🐍</span>
+              <div class="tool-meter">
+                <div class="tool-fill" style="width: 70%"></div>
+              </div>
+            </div>
+            <span class="tool-name">Python</span>
+          </div>
+          <div class="tool-item" data-skill="40">
+            <div class="tool-visual">
+              <span class="tool-emoji">🎸</span>
+              <div class="tool-meter">
+                <div class="tool-fill" style="width: 40%"></div>
+              </div>
+            </div>
+            <span class="tool-name">Django</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="toolbox-section">
+        <h3 class="toolbox-title">Frontend</h3>
+        <div class="tools-grid">
+          <div class="tool-item" data-skill="70">
+            <div class="tool-visual">
+              <span class="tool-emoji">📄</span>
+              <div class="tool-meter">
+                <div class="tool-fill" style="width: 70%"></div>
+              </div>
+            </div>
+            <span class="tool-name">HTML</span>
+          </div>
+          <div class="tool-item" data-skill="60">
+            <div class="tool-visual">
+              <span class="tool-emoji">🎨</span>
+              <div class="tool-meter">
+                <div class="tool-fill" style="width: 60%"></div>
+              </div>
+            </div>
+            <span class="tool-name">CSS</span>
+          </div>
+          <div class="tool-item" data-skill="30">
+            <div class="tool-visual">
+              <span class="tool-emoji">⚡</span>
+              <div class="tool-meter">
+                <div class="tool-fill" style="width: 30%"></div>
+              </div>
+            </div>
+            <span class="tool-name">JavaScript</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="toolbox-section">
+        <h3 class="toolbox-title">Bases de Datos</h3>
+        <div class="tools-grid">
+          <div class="tool-item" data-skill="40">
+            <div class="tool-visual">
+              <span class="tool-emoji">🗄️</span>
+              <div class="tool-meter">
+                <div class="tool-fill" style="width: 40%"></div>
+              </div>
+            </div>
+            <span class="tool-name">MySQL</span>
+          </div>
+          <div class="tool-item" data-skill="40">
+            <div class="tool-visual">
+              <span class="tool-emoji">💾</span>
+              <div class="tool-meter">
+                <div class="tool-fill" style="width: 40%"></div>
+              </div>
+            </div>
+            <span class="tool-name">SQL</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="toolbox-section">
+        <h3 class="toolbox-title">Control de Versiones</h3>
+        <div class="tools-grid">
+          <div class="tool-item" data-skill="50">
+            <div class="tool-visual">
+              <span class="tool-emoji">🌿</span>
+              <div class="tool-meter">
+                <div class="tool-fill" style="width: 50%"></div>
+              </div>
+            </div>
+            <span class="tool-name">Git</span>
+          </div>
+          <div class="tool-item" data-skill="40">
+            <div class="tool-visual">
+              <span class="tool-emoji">🐙</span>
+              <div class="tool-meter">
+                <div class="tool-fill" style="width: 40%"></div>
+              </div>
+            </div>
+            <span class="tool-name">GitHub</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- PROYECTOS -->
-<section id="proyectos" class="seccion animar">
-  <div class="contenido">
-    <h2 class="titulo">Proyectos</h2>
-    <p class="description">
-      Aplicaciones web con autenticación, manejo de usuarios, despliegue y control de versiones.
-      Siempre enfocado en que el producto funcione y sea fácil de escalar.
-    </p>
+<section id="proyectos" class="proyectos">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">
+        <span class="title-icon">⚒️</span>
+        Proyectos Construidos
+      </h2>
+      <p class="section-subtitle">Soluciones creadas con código limpio y funcional</p>
+    </div>
+
+    <div class="proyectos-grid">
+      <!-- Cultural Expression -->
+      <article class="proyecto-card">
+        <div class="proyecto-badge">Django</div>
+        <div class="proyecto-img">
+          <img src="img/inicio.jpg" alt="Cultural Expression" onerror="this.src='https://via.placeholder.com/400x250/00adb5/ffffff?text=Cultural+Expression'"/>
+          <div class="proyecto-overlay">
+            <a href="https://github.com/Sant-Beco/MejorandoExpression" target="_blank" class="btn-proyecto">Ver en GitHub</a>
+          </div>
+        </div>
+        <div class="proyecto-info">
+          <h3>🎨 Cultural Expression</h3>
+          <p>Plataforma web para promover arte y cultura con gestión completa de usuarios y contenido.</p>
+          <div class="proyecto-tech">
+            <span>Django</span>
+            <span>SQLite</span>
+            <span>HTML/CSS</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Garras -->
+      <article class="proyecto-card">
+        <div class="proyecto-badge">Frontend</div>
+        <div class="proyecto-img">
+          <img src="img/img-garras.jpg" alt="Garras E-commerce" onerror="this.src='https://via.placeholder.com/400x250/00adb5/ffffff?text=Garras'"/>
+          <div class="proyecto-overlay">
+            <a href="https://genuine-paletas-50be2f.netlify.app/" target="_blank" class="btn-proyecto">Ver Demo</a>
+          </div>
+        </div>
+        <div class="proyecto-info">
+          <h3>🐾 Garras</h3>
+          <p>E-commerce moderno para productos de mascotas con diseño responsive y atractivo.</p>
+          <div class="proyecto-tech">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>Responsive</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- FastAPI -->
+      <article class="proyecto-card">
+        <div class="proyecto-badge">API</div>
+        <div class="proyecto-img">
+          <img src="img/img-fastapi.jpg" alt="FastAPI CRUD" onerror="this.src='https://via.placeholder.com/400x250/00adb5/ffffff?text=FastAPI+CRUD'"/>
+          <div class="proyecto-overlay">
+            <a href="https://github.com/Sant-Beco/fastapi-customer-crud.git" target="_blank" class="btn-proyecto">Ver en GitHub</a>
+          </div>
+        </div>
+        <div class="proyecto-info">
+          <h3>🚀 FastAPI Customer CRUD</h3>
+          <p>API RESTful robusta para gestión de clientes con validaciones y MySQL.</p>
+          <div class="proyecto-tech">
+            <span>FastAPI</span>
+            <span>MySQL</span>
+            <span>SQLAlchemy</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCIA + CV -->
+<section id="experiencia" class="experiencia">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">
+        <span class="title-icon">💼</span>
+        Experiencia
+      </h2>
+    </div>
+
+    <div class="cv-layout">
+      <div class="cv-visual">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">Presente</div>
+              <h3>Desarrollador Web</h3>
+              <p>Proyectos personales y freelance</p>
+              <ul class="timeline-skills">
+                <li>Backend con Django y FastAPI</li>
+                <li>Control de versiones con Git</li>
+                <li>Bases de datos relacionales</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">Experiencia laboral</div>
+              <h3>Auxiliar Administrativo</h3>
+              <p>Apoyo en procesos administrativos y organizacionales</p>
+              <ul class="timeline-skills">
+                <li>Gestión de documentos</li>
+                <li>Atención al detalle</li>
+                <li>Trabajo en equipo</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-download" id="cv-download">
+        <div class="cv-card">
+          <div class="cv-icon">📄</div>
+          <h3>Descarga mi CV completo</h3>
+          <p>Conoce más sobre mi experiencia, formación y habilidades</p>
+          <a href="#" class="btn btn-download" id="download-cv">
+            Descargar CV (PDF)
+          </a>
+          <small class="cv-note">Actualizado en Febrero 2026</small>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- CONTACTO -->
-<section id="contacto" class="seccion animar">
-  <div class="contenido">
-    <h2 class="titulo">Contacto</h2>
-    <p class="description">
-      ¿Buscas a alguien comprometido, técnico y con mentalidad de mejora continua?
-      Escríbeme y construyamos algo sólido.
-    </p>
+<section id="contacto" class="contacto">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">
+        <span class="title-icon">📬</span>
+        Contacto
+      </h2>
+      <p class="section-subtitle">¿Tienes un proyecto en mente? Trabajemos juntos</p>
+    </div>
+
+    <div class="contacto-grid">
+      <div class="contacto-info">
+        <div class="info-item">
+          <div class="info-icon">📧</div>
+          <div>
+            <h4>Email</h4>
+            <a href="mailto:santiago@ejemplo.com">santiago@ejemplo.com</a>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">📱</div>
+          <div>
+            <h4>Teléfono</h4>
+            <a href="tel:+573246376012">+57 324 637 6012</a>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">🐙</div>
+          <div>
+            <h4>GitHub</h4>
+            <a href="https://github.com/Sant-Beco" target="_blank">@Sant-Beco</a>
+          </div>
+        </div>
+      </div>
+
+      <form class="contacto-form" action="https://formspree.io/f/xayrvveb" method="POST">
+        <div class="form-group">
+          <input type="text" name="nombre" placeholder="Tu nombre" required>
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Tu email" required>
+        </div>
+        <div class="form-group">
+          <textarea name="mensaje" rows="5" placeholder="Tu mensaje" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+      </form>
+    </div>
   </div>
 </section>
 
-<footer class="pie-pagina">
-  © 2026 — Santiago
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="logo-icon">⚒️</span>
+        <span>Santiago Bedoya</span>
+        <p>Artesano de Código</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/Sant-Beco" target="_blank" aria-label="GitHub">GitHub</a>
+        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Santiago Bedoya. Hecho con 🛠️ y ☕</p>
+    </div>
+  </div>
 </footer>
 
-<script>
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.15 });
-
-  document.querySelectorAll('.animar').forEach(el => observer.observe(el));
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
