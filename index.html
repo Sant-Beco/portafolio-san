@@ -55,7 +55,8 @@
 <nav class="navbar">
   <div class="nav-brand">
     <span class="logo-icon">⚒️</span>
-    <span>Santiago</span>
+    <!-- ANIMACIÓN: Hilos tejiendo "Santiago" -->
+    <canvas id="thread-canvas"></canvas>
   </div>
   <ul class="nav-menu">
     <li><a href="#hero">Inicio</a></li>
@@ -80,15 +81,19 @@
     <i class="ph ph-gear gear gear-3"></i>
   </div>
 
+  <!-- ANIMACIÓN: Partículas formando "SANWEB" -->
+  <canvas id="particle-canvas" class="particle-background"></canvas>
+
   <div class="hero-content">
     <div class="craft-badge">
       <span>✨ Artesano de Código</span>
     </div>
 
     <h1 class="hero-title">
-      <span class="title-line">Construyendo</span>
-      <span class="title-line title-highlight">Soluciones</span>
-      <span class="title-line">con Código</span>
+      <!-- ANIMACIÓN: ASCII Art en títulos -->
+      <span class="title-line ascii-animated" data-text="Construyendo">Construyendo</span>
+      <span class="title-line title-highlight ascii-animated" data-text="Soluciones">Soluciones</span>
+      <span class="title-line ascii-animated" data-text="con Código">con Código</span>
     </h1>
 
     <p class="hero-subtitle">
@@ -126,9 +131,13 @@
 
 <!-- SOBRE MÍ -->
 <section id="sobre" class="sobre-mi">
+  <!-- ANIMACIÓN: Código binario cayendo (Matrix style) -->
+  <div class="binary-rain"></div>
+  
   <div class="container">
     <div class="sobre-content">
-      <h2>Hola, soy Santiago 👋</h2>
+      <!-- ANIMACIÓN: Telar de código en H2 -->
+      <h2 class="loom-title" data-text="Hola, soy Santiago 👋">Hola, soy Santiago 👋</h2>
       <p>
         Desarrollador backend en formación, próximo a graduarme como <strong>Tecnólogo 
         en Análisis y Desarrollo de Software</strong> (SENA - Marzo 2025). Con 10 meses 
@@ -178,7 +187,8 @@
 <section id="herramientas" class="herramientas">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title">
+      <!-- ANIMACIÓN: Telar de código en H2 -->
+      <h2 class="section-title loom-title" data-text="🧰 Caja de Herramientas">
         <span class="title-icon">🧰</span>
         Caja de Herramientas
       </h2>
@@ -307,7 +317,8 @@
 <section id="proyectos" class="proyectos">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title">
+      <!-- ANIMACIÓN: Telar de código en H2 -->
+      <h2 class="section-title loom-title" data-text="⚒️ Proyectos Construidos">
         <span class="title-icon">⚒️</span>
         Proyectos Construidos
       </h2>
@@ -402,7 +413,7 @@
       <article class="proyecto-card">
         <div class="proyecto-badge">IoT</div>
         <div class="proyecto-img">
-          <img src="img/img-micro.jpg" alt="Estación Climática IoT" onerror="this.src='https://via.placeholder.com/400x250/00adb5/ffffff?text=Estacion+Climatica'"/>
+          <img src="img/estacion-iot.jpg" alt="Estación Climática IoT" onerror="this.src='https://via.placeholder.com/400x250/00adb5/ffffff?text=Estacion+Climatica'"/>
           <div class="proyecto-overlay">
             <a href="https://github.com/Sant-Beco" target="_blank" class="btn-proyecto">Ver en GitHub</a>
           </div>
@@ -418,25 +429,6 @@
           </div>
         </div>
       </article>
-      <!-- Misionales -->
-      <article class="proyecto-card">
-        <div class="proyecto-badge">projects</div>
-        <div class="proyecto-img">
-          <img src="img/img-project.jpg" alt="Estación Climática IoT" onerror="this.src='https://via.placeholder.com/400x250/00adb5/ffffff?text=carro'"/>
-          <div class="proyecto-overlay">
-            <a href="https://github.com/Sant-Beco" target="_blank" class="btn-proyecto">Ver en GitHub</a>
-          </div>
-        </div>
-        <div class="proyecto-info">
-          <h3>📡 Django gestor tareas</h3>
-          <p> Django gestor tarea.</p>
-          <div class="proyecto-tech">
-            <span>Django</span>
-            <span>SQLite</span>
-            <span>HTML/CSS</span>
-          </div>
-        </div>
-      </article>
     </div>
   </div>
 </section>
@@ -445,7 +437,8 @@
 <section id="experiencia" class="experiencia">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title">
+      <!-- ANIMACIÓN: Telar de código en H2 -->
+      <h2 class="section-title loom-title" data-text="💼 Experiencia">
         <span class="title-icon">💼</span>
         Experiencia
       </h2>
@@ -532,7 +525,8 @@
 <section id="contacto" class="contacto">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title">
+      <!-- ANIMACIÓN: Telar de código en H2 -->
+      <h2 class="section-title loom-title" data-text="📬 Contacto">
         <span class="title-icon">📬</span>
         Contacto
       </h2>
