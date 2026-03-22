@@ -1,6 +1,6 @@
 // ==================== ANIMACIONES ARTESANALES ====================
 
-// ========== 1. CÓDIGO BINARIO CAYENDO (Matrix Style) - Fondo "Sobre Mí" ==========
+// ========== 1. CÓDIGO BINARIO CAYENDO (Matrix Style) ==========
 function createBinaryRain() {
   const binaryContainer = document.querySelector('.binary-rain');
   if (!binaryContainer) return;
@@ -57,12 +57,16 @@ function createBinaryRain() {
   }, 8000);
 }
 
-// ========== 2. ASCII ART ANIMADO - Título Hero ==========
+// ========== 2. ASCII ART ANIMADO - CORREGIDO ==========
 function animateASCIITitle() {
   const titles = document.querySelectorAll('.ascii-animated');
   
   titles.forEach(title => {
     const text = title.getAttribute('data-text') || title.textContent;
+    
+    // Aplicar fuente monospace temporalmente
+    title.style.fontFamily = '"Courier New", monospace';
+    
     const asciiSteps = [
       text.split('').map(() => String.fromCharCode(33 + Math.floor(Math.random() * 94))).join(''),
       text.split('').map((char, i) => Math.random() > 0.5 ? char : String.fromCharCode(33 + Math.floor(Math.random() * 94))).join(''),
@@ -76,12 +80,14 @@ function animateASCIITitle() {
         step++;
       } else {
         clearInterval(interval);
+        // Restaurar fuente original
+        title.style.fontFamily = '';
       }
     }, 100);
   });
 }
 
-// ========== 3. HILOS TEJIENDO NOMBRE - Logo Santiago ==========
+// ========== 3. HILOS TEJIENDO NOMBRE ==========
 function createThreadWeaving() {
   const canvas = document.getElementById('thread-canvas');
   if (!canvas) return;
@@ -142,39 +148,68 @@ function createThreadWeaving() {
   drawThread();
 }
 
-// ========== 4. PARTÍCULAS FORMANDO "SANWEB" - Fondo Hero ==========
-function createParticleText() {
+// ========== 4. PARTÍCULAS FORMANDO TÍTULO PRINCIPAL ==========
+function createParticleTitle() {
   const canvas = document.getElementById('particle-canvas');
   if (!canvas) return;
   
   const ctx = canvas.getContext('2d');
-  canvas.width = window.innerWidth;
-  canvas.height = 400;
+  const container = canvas.parentElement;
   
-  const particles = [];
-  const text = 'SANWEB';
+  // Ajustar tamaño al contenedor
+  function resizeCanvas() {
+    canvas.width = container.offsetWidth;
+    canvas.height = container.offsetHeight;
+    initParticles();
+  }
   
-  ctx.font = 'bold 80px Bebas Neue';
-  ctx.fillStyle = '#00adb5';
-  ctx.fillText(text, canvas.width / 2 - 150, 200);
+  let particles = [];
   
-  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  
-  for (let y = 0; y < imageData.height; y += 4) {
-    for (let x = 0; x < imageData.width; x += 4) {
-      const index = (y * imageData.width + x) * 4;
-      const alpha = imageData.data[index + 3];
-      
-      if (alpha > 128) {
-        particles.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          targetX: x,
-          targetY: y,
-          size: Math.random() * 2 + 1,
-          color: `hsl(${Math.random() * 60 + 160}, 70%, 50%)`
-        });
+  function initParticles() {
+    particles = [];
+    
+    // Crear el texto en el canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // Configurar texto
+    const fontSize = Math.min(canvas.width / 8, 80);
+    ctx.font = `bold ${fontSize}px Bebas Neue`;
+    ctx.fillStyle = '#00adb5';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    
+    // Dibujar las 3 líneas
+    const lines = ['CONSTRUYENDO', 'SOLUCIONES', 'CON CÓDIGO'];
+    const lineHeight = fontSize * 1.2;
+    const startY = (canvas.height - lineHeight * 2) / 2;
+    
+    lines.forEach((line, index) => {
+      ctx.fillText(line, canvas.width / 2, startY + index * lineHeight);
+    });
+    
+    // Obtener píxeles del texto
+    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // Crear partículas desde los píxeles
+    const sampling = 3; // Tomar 1 de cada 3 píxeles
+    for (let y = 0; y < imageData.height; y += sampling) {
+      for (let x = 0; x < imageData.width; x += sampling) {
+        const index = (y * imageData.width + x) * 4;
+        const alpha = imageData.data[index + 3];
+        
+        if (alpha > 128) {
+          particles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            targetX: x,
+            targetY: y,
+            size: Math.random() * 1.5 + 0.8,
+            color: `hsl(${180 + Math.random() * 20}, 70%, ${50 + Math.random() * 10}%)`,
+            speedX: (Math.random() - 0.5) * 2,
+            speedY: (Math.random() - 0.5) * 2
+          });
+        }
       }
     }
   }
@@ -183,37 +218,43 @@ function createParticleText() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
     particles.forEach(particle => {
-      particle.x += (particle.targetX - particle.x) * 0.05;
-      particle.y += (particle.targetY - particle.y) * 0.05;
+      // Movimiento hacia el objetivo
+      const dx = particle.targetX - particle.x;
+      const dy = particle.targetY - particle.y;
       
+      particle.x += dx * 0.05;
+      particle.y += dy * 0.05;
+      
+      // Dibujar partícula
       ctx.fillStyle = particle.color;
       ctx.beginPath();
       ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
       ctx.fill();
       
+      // Glow effect
       const gradient = ctx.createRadialGradient(
         particle.x, particle.y, 0,
-        particle.x, particle.y, particle.size * 2
+        particle.x, particle.y, particle.size * 3
       );
       gradient.addColorStop(0, particle.color);
       gradient.addColorStop(1, 'transparent');
       ctx.fillStyle = gradient;
       ctx.beginPath();
-      ctx.arc(particle.x, particle.y, particle.size * 2, 0, Math.PI * 2);
+      ctx.arc(particle.x, particle.y, particle.size * 3, 0, Math.PI * 2);
       ctx.fill();
     });
     
     requestAnimationFrame(animateParticles);
   }
   
+  resizeCanvas();
   animateParticles();
   
-  window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-  });
+  // Redimensionar cuando cambia el tamaño
+  window.addEventListener('resize', resizeCanvas);
 }
 
-// ========== 5. TELAR DE CÓDIGO - Todos los H2 ==========
+// ========== 5. TELAR DE CÓDIGO ==========
 function createCodeLoom() {
   const headings = document.querySelectorAll('.loom-title');
   
@@ -268,7 +309,7 @@ document.addEventListener('DOMContentLoaded', () => {
     createBinaryRain();
     animateASCIITitle();
     createThreadWeaving();
-    createParticleText();
+    createParticleTitle(); // Nueva función
     createCodeLoom();
   }, 100);
 });
