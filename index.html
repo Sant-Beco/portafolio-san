@@ -3,7 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Santiago Bedoya | Artesano de Código</title>
+  <title>Santiago Bedoya | Desarrollador Backend Junior</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Desarrollador Backend Junior especializado en Python, Django y FastAPI. Tecnólogo SENA con experiencia en gestión de datos y desarrollo web.">
+  <meta name="keywords" content="desarrollador python, django developer, backend junior, fastapi, mysql, desarrollador medellín, desarrollador itagüí">
+  <meta name="author" content="Santiago Bedoya Corrales">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://beautiful-madeleine-97cc02.netlify.app/">
+  <meta property="og:title" content="Santiago Bedoya | Desarrollador Backend Junior">
+  <meta property="og:description" content="Portafolio de desarrollador backend con proyectos en Django, FastAPI y bases de datos">
+  <meta property="og:image" content="https://beautiful-madeleine-97cc02.netlify.app/img/og-image.jpg">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Santiago Bedoya | Desarrollador Backend">
+  <meta name="twitter:description" content="Portafolio de proyectos Python, Django y FastAPI">
+  
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
   <link rel="stylesheet" href="style.css">
@@ -40,6 +59,7 @@
   </div>
   <ul class="nav-menu">
     <li><a href="#hero">Inicio</a></li>
+    <li><a href="#sobre">Sobre mí</a></li>
     <li><a href="#herramientas">Herramientas</a></li>
     <li><a href="#proyectos">Proyectos</a></li>
     <li><a href="#experiencia">Experiencia</a></li>
@@ -53,11 +73,12 @@
 </nav>
 
 <!-- HERO -->
-<div class="hero-bg">
-  <i class="ph ph-gear gear gear-1"></i>
-  <i class="ph ph-gear gear gear-2"></i>
-  <i class="ph ph-gear gear gear-3"></i>
-</div>
+<section id="hero" class="hero">
+  <div class="hero-bg">
+    <i class="ph ph-gear gear gear-1"></i>
+    <i class="ph ph-gear gear gear-2"></i>
+    <i class="ph ph-gear gear gear-3"></i>
+  </div>
 
   <div class="hero-content">
     <div class="craft-badge">
@@ -74,21 +95,54 @@
       Backend • Datos • Sistemas
     </p>
 
+    <p class="hero-description">
+      Tecnólogo SENA (finaliza marzo 2025) con 10 meses de experiencia 
+      gestionando datos en Incubant. Especializado en Python, Django y APIs.
+    </p>
+
+    <div class="hero-badges">
+      <span class="badge badge-available">✅ Disponible para trabajar</span>
+      <span class="badge badge-grad">🎓 Graduación: Marzo 2025</span>
+    </div>
+
     <div class="hero-tools">
       <div class="tool-icon">🔨</div>
       <div class="tool-icon">🔧</div>
       <div class="tool-icon">⚡</div>
       <div class="tool-icon">🛠️</div>
     </div>
+
     <div class="hero-cta">
       <a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
-      <a href="Hoja_de_vida.pdf" class="btn btn-secondary" download="Hoja_de_vida.pdf">Descargar CV</a>
+      <a href="CV_Santiago_Bedoya_Desarrollador_Software.pdf" class="btn btn-secondary" download>Descargar CV</a>
     </div>
   </div>
 
   <div class="scroll-indicator">
     <span>Explora</span>
     <div class="scroll-arrow">↓</div>
+  </div>
+</section>
+
+<!-- SOBRE MÍ -->
+<section id="sobre" class="sobre-mi">
+  <div class="container">
+    <div class="sobre-content">
+      <h2>Hola, soy Santiago 👋</h2>
+      <p>
+        Desarrollador backend en formación, próximo a graduarme como <strong>Tecnólogo 
+        en Análisis y Desarrollo de Software</strong> (SENA - Marzo 2025). Con 10 meses 
+        de experiencia profesional en Incubant gestionando información empresarial, 
+        combino conocimientos técnicos de programación con experiencia real en 
+        manejo de datos.
+      </p>
+      <p>
+        Me apasiona crear soluciones que automaticen procesos y faciliten el 
+        trabajo con datos. Especializado en <strong>Python, Django y desarrollo de APIs</strong>, 
+        busco mi primera oportunidad como desarrollador para aportar valor técnico 
+        a un equipo de desarrollo.
+      </p>
+    </div>
   </div>
 </section>
 
@@ -120,7 +174,7 @@
   </div>
 </section>
 
-<!-- HERRAMIENTAS - CAJA DE HERRAMIENTAS VISUAL -->
+<!-- HERRAMIENTAS -->
 <section id="herramientas" class="herramientas">
   <div class="container">
     <div class="section-header">
@@ -137,7 +191,7 @@
         <div class="tools-grid">
           <div class="tool-item" data-skill="70">
             <div class="tool-visual">
-              <li><i class="devicon-python-plain colored tool-emoji"></i> Python</li>
+              <span class="tool-emoji"><i class="devicon-python-plain colored"></i></span>
               <div class="tool-meter">
                 <div class="tool-fill" style="width: 70%"></div>
               </div>
@@ -146,12 +200,21 @@
           </div>
           <div class="tool-item" data-skill="40">
             <div class="tool-visual">
-              <span class="tool-emoji">🎸</span>
+              <span class="tool-emoji"><i class="devicon-django-plain colored"></i></span>
               <div class="tool-meter">
                 <div class="tool-fill" style="width: 40%"></div>
               </div>
             </div>
             <span class="tool-name">Django</span>
+          </div>
+          <div class="tool-item" data-skill="40">
+            <div class="tool-visual">
+              <span class="tool-emoji"><i class="devicon-fastapi-plain colored"></i></span>
+              <div class="tool-meter">
+                <div class="tool-fill" style="width: 40%"></div>
+              </div>
+            </div>
+            <span class="tool-name">FastAPI</span>
           </div>
         </div>
       </div>
@@ -161,25 +224,25 @@
         <div class="tools-grid">
           <div class="tool-item" data-skill="70">
             <div class="tool-visual">
-              <span class="tool-emoji">📄</span>
+              <span class="tool-emoji"><i class="devicon-html5-plain colored"></i></span>
               <div class="tool-meter">
                 <div class="tool-fill" style="width: 70%"></div>
               </div>
             </div>
-            <span class="tool-name">HTML</span>
+            <span class="tool-name">HTML5</span>
           </div>
           <div class="tool-item" data-skill="60">
             <div class="tool-visual">
-              <span class="tool-emoji">🎨</span>
+              <span class="tool-emoji"><i class="devicon-css3-plain colored"></i></span>
               <div class="tool-meter">
                 <div class="tool-fill" style="width: 60%"></div>
               </div>
             </div>
-            <span class="tool-name">CSS</span>
+            <span class="tool-name">CSS3</span>
           </div>
           <div class="tool-item" data-skill="30">
             <div class="tool-visual">
-              <span class="tool-emoji">⚡</span>
+              <span class="tool-emoji"><i class="devicon-javascript-plain colored"></i></span>
               <div class="tool-meter">
                 <div class="tool-fill" style="width: 30%"></div>
               </div>
@@ -194,7 +257,7 @@
         <div class="tools-grid">
           <div class="tool-item" data-skill="40">
             <div class="tool-visual">
-              <span class="tool-emoji">🗄️</span>
+              <span class="tool-emoji"><i class="devicon-mysql-plain colored"></i></span>
               <div class="tool-meter">
                 <div class="tool-fill" style="width: 40%"></div>
               </div>
@@ -203,12 +266,12 @@
           </div>
           <div class="tool-item" data-skill="40">
             <div class="tool-visual">
-              <span class="tool-emoji">💾</span>
+              <span class="tool-emoji"><i class="devicon-sqlite-plain colored"></i></span>
               <div class="tool-meter">
                 <div class="tool-fill" style="width: 40%"></div>
               </div>
             </div>
-            <span class="tool-name">SQL</span>
+            <span class="tool-name">SQLite</span>
           </div>
         </div>
       </div>
@@ -218,7 +281,7 @@
         <div class="tools-grid">
           <div class="tool-item" data-skill="50">
             <div class="tool-visual">
-              <span class="tool-emoji">🌿</span>
+              <span class="tool-emoji"><i class="devicon-git-plain colored"></i></span>
               <div class="tool-meter">
                 <div class="tool-fill" style="width: 50%"></div>
               </div>
@@ -227,7 +290,7 @@
           </div>
           <div class="tool-item" data-skill="40">
             <div class="tool-visual">
-              <span class="tool-emoji">🐙</span>
+              <span class="tool-emoji"><i class="devicon-github-original"></i></span>
               <div class="tool-meter">
                 <div class="tool-fill" style="width: 40%"></div>
               </div>
@@ -263,31 +326,12 @@
         </div>
         <div class="proyecto-info">
           <h3>🎨 Cultural Expression</h3>
-          <p>Plataforma web para promover arte y cultura con gestión completa de usuarios y contenido.</p>
+          <p>Plataforma web completa con autenticación de usuarios, CRUD de eventos, búsqueda avanzada y visualización de datos con Plotly. +50 usuarios registrados.</p>
           <div class="proyecto-tech">
             <span>Django</span>
-            <span>SQLite</span>
+            <span>MySQL</span>
             <span>HTML/CSS</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- Garras -->
-      <article class="proyecto-card">
-        <div class="proyecto-badge">Frontend</div>
-        <div class="proyecto-img">
-          <img src="img/img-garras.jpg" alt="Garras E-commerce" onerror="this.src='https://via.placeholder.com/400x250/00adb5/ffffff?text=Garras'"/>
-          <div class="proyecto-overlay">
-            <a href="https://genuine-paletas-50be2f.netlify.app/" target="_blank" class="btn-proyecto">Ver Demo</a>
-          </div>
-        </div>
-        <div class="proyecto-info">
-          <h3>🐾 Garras</h3>
-          <p>E-commerce moderno para productos de mascotas con diseño responsive y atractivo.</p>
-          <div class="proyecto-tech">
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>Responsive</span>
+            <span>Plotly</span>
           </div>
         </div>
       </article>
@@ -308,11 +352,12 @@
             <span>FastAPI</span>
             <span>MySQL</span>
             <span>SQLAlchemy</span>
+            <span>Pydantic</span>
           </div>
         </div>
       </article>
 
-      <!-- Inspección de Vehículos -->
+      <!-- Inspección -->
       <article class="proyecto-card">
         <div class="proyecto-badge">Python</div>
         <div class="proyecto-img">
@@ -323,13 +368,72 @@
         </div>
         <div class="proyecto-info">
           <h3>🚗 Inspección de Vehículos</h3>
-          <p>Sistema preoperacional para verificar el estado y funcionamiento de vehículos con generación de reportes en PDF.</p>
+          <p>Sistema preoperacional para verificar el estado y funcionamiento de vehículos con generación automática de reportes en PDF.</p>
           <div class="proyecto-tech">
             <span>FastAPI</span>
             <span>Python</span>
             <span>MySQL</span>
             <span>WeasyPrint</span>
-            <span>Pillow</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Garras -->
+      <article class="proyecto-card">
+        <div class="proyecto-badge">Frontend</div>
+        <div class="proyecto-img">
+          <img src="img/img-garras.jpg" alt="Garras E-commerce" onerror="this.src='https://via.placeholder.com/400x250/00adb5/ffffff?text=Garras'"/>
+          <div class="proyecto-overlay">
+            <a href="https://genuine-paletas-50be2f.netlify.app/" target="_blank" class="btn-proyecto">Ver Demo</a>
+          </div>
+        </div>
+        <div class="proyecto-info">
+          <h3>🐾 Garras</h3>
+          <p>E-commerce moderno para productos de mascotas con diseño responsive y atractivo.</p>
+          <div class="proyecto-tech">
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>Responsive</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- IoT -->
+      <article class="proyecto-card">
+        <div class="proyecto-badge">IoT</div>
+        <div class="proyecto-img">
+          <img src="img/img-micro.jpg" alt="Estación Climática IoT" onerror="this.src='https://via.placeholder.com/400x250/00adb5/ffffff?text=Estacion+Climatica'"/>
+          <div class="proyecto-overlay">
+            <a href="https://github.com/Sant-Beco" target="_blank" class="btn-proyecto">Ver en GitHub</a>
+          </div>
+        </div>
+        <div class="proyecto-info">
+          <h3>📡 Estación Climática IoT</h3>
+          <p>Sistema de monitoreo en tiempo real de temperatura, humedad y luz para agricultura. Ayuda a agricultores a tomar decisiones basadas en datos ambientales.</p>
+          <div class="proyecto-tech">
+            <span>Arduino</span>
+            <span>C++</span>
+            <span>DHT22</span>
+            <span>BH1750</span>
+          </div>
+        </div>
+      </article>
+      <!-- Misionales -->
+      <article class="proyecto-card">
+        <div class="proyecto-badge">projects</div>
+        <div class="proyecto-img">
+          <img src="img/img-project.jpg" alt="Estación Climática IoT" onerror="this.src='https://via.placeholder.com/400x250/00adb5/ffffff?text=carro'"/>
+          <div class="proyecto-overlay">
+            <a href="https://github.com/Sant-Beco" target="_blank" class="btn-proyecto">Ver en GitHub</a>
+          </div>
+        </div>
+        <div class="proyecto-info">
+          <h3>📡 Django gestor tareas</h3>
+          <p> Django gestor tarea.</p>
+          <div class="proyecto-tech">
+            <span>Django</span>
+            <span>SQLite</span>
+            <span>HTML/CSS</span>
           </div>
         </div>
       </article>
@@ -337,7 +441,7 @@
   </div>
 </section>
 
-<!-- EXPERIENCIA + CV -->
+<!-- EXPERIENCIA -->
 <section id="experiencia" class="experiencia">
   <div class="container">
     <div class="section-header">
@@ -357,10 +461,10 @@
               <h3>Encargado de Información</h3>
               <p>Incubant</p>
               <ul class="timeline-skills">
-                <li>Actualización diaria de registros de lotes en Excel</li>
-                <li>Control y seguimiento de información empresarial</li>
-                <li>Organización y mantenimiento de bases de datos</li>
-                <li>Verificación de precisión en el ingreso de datos</li>
+                <li>Actualización diaria de +50 registros de lotes en Excel con 99% precisión</li>
+                <li>Gestión de base de datos con +1,000 entradas mensuales</li>
+                <li>Reducción de errores de datos en 30% mediante verificación cruzada</li>
+                <li>Generación de reportes semanales para toma de decisiones</li>
               </ul>
             </div>
           </div>
@@ -401,9 +505,24 @@
           <div class="cv-icon">📄</div>
           <h3>Descarga mi CV completo</h3>
           <p>Conoce más sobre mi experiencia, formación y habilidades</p> 
-          <a href="Hoja_de_vida.pdf" class="btn btn-secondary" download="Hoja_de_vida.pdf">Descargar CV (PDF)</a>
-          <small class="cv-note">Actualizado en Febrero 2026</small>
+          <a href="CV_Santiago_Bedoya_Desarrollador_Software.pdf" class="btn btn-download" download>Descargar CV (PDF)</a>
+          <small class="cv-note">Actualizado en Marzo 2026</small>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA HIRING -->
+<section class="cta-hiring">
+  <div class="container">
+    <div class="cta-content">
+      <h2>¿Buscas un desarrollador backend comprometido?</h2>
+      <p>Estoy buscando mi primera oportunidad profesional como desarrollador. 
+      Graduación en marzo 2025, disponibilidad inmediata.</p>
+      <div class="cta-buttons">
+        <a href="#contacto" class="btn btn-primary btn-lg">Contactarme</a>
+        <a href="CV_Santiago_Bedoya_Desarrollador_Software.pdf" download class="btn btn-secondary btn-lg">Descargar CV</a>
       </div>
     </div>
   </div>
@@ -443,6 +562,13 @@
             <a href="https://github.com/Sant-Beco" target="_blank">@Sant-Beco</a>
           </div>
         </div>
+        <div class="info-item">
+          <div class="info-icon">💼</div>
+          <div>
+            <h4>LinkedIn</h4>
+            <a href="https://www.linkedin.com/in/santiago-bedoya-corrales/" target="_blank">santiago-bedoya-corrales</a>
+          </div>
+        </div>
       </div>
 
       <form class="contacto-form" action="https://formspree.io/f/xayrvveb" method="POST">
@@ -473,7 +599,16 @@
       <div class="footer-links">
         <a href="https://github.com/Sant-Beco" target="_blank" aria-label="GitHub">GitHub</a>
         <a href="https://www.linkedin.com/in/santiago-bedoya-corrales/" target="_blank" aria-label="LinkedIn">LinkedIn</a>
+        <a href="mailto:santiagobedoyacorrales@gmail.com" aria-label="Email">Email</a>
+        <a href="tel:+573102532893" aria-label="Llamar">Llamar</a>
       </div>
     </div>
     <div class="footer-bottom">
       <p>&copy; 2026 – Santiago Bedoya · Hecho con 🔨 y ☕</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
