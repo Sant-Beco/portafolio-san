@@ -171,8 +171,19 @@ function createParticleTitle() {
     // Crear el texto en el canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
-    // Configurar texto
-    const fontSize = Math.min(canvas.width / 8, 80);
+    // Configurar texto responsive
+    const isMobile = window.innerWidth <= 768;
+    const isSmallMobile = window.innerWidth <= 480;
+    
+    let fontSize;
+    if (isSmallMobile) {
+      fontSize = Math.min(canvas.width / 6, 28);
+    } else if (isMobile) {
+      fontSize = Math.min(canvas.width / 6.5, 35);
+    } else {
+      fontSize = Math.min(canvas.width / 8, 80);
+    }
+    
     ctx.font = `bold ${fontSize}px Bebas Neue`;
     ctx.fillStyle = '#00adb5';
     ctx.textAlign = 'center';
@@ -180,7 +191,7 @@ function createParticleTitle() {
     
     // Dibujar las 3 líneas
     const lines = ['CONSTRUYENDO', 'SOLUCIONES', 'CON CÓDIGO'];
-    const lineHeight = fontSize * 1.2;
+    const lineHeight = fontSize * 1.15;
     const startY = (canvas.height - lineHeight * 2) / 2;
     
     lines.forEach((line, index) => {
@@ -191,8 +202,10 @@ function createParticleTitle() {
     const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
-    // Crear partículas desde los píxeles
-    const sampling = 3; // Tomar 1 de cada 3 píxeles
+    // Crear partículas desde los píxeles (menos densidad en mobile)
+    const sampling = isMobile ? 4 : 3;
+    const particleSize = isSmallMobile ? 0.7 : (isMobile ? 0.9 : 1);
+    
     for (let y = 0; y < imageData.height; y += sampling) {
       for (let x = 0; x < imageData.width; x += sampling) {
         const index = (y * imageData.width + x) * 4;
@@ -204,7 +217,7 @@ function createParticleTitle() {
             y: Math.random() * canvas.height,
             targetX: x,
             targetY: y,
-            size: Math.random() * 1.5 + 0.8,
+            size: (Math.random() * 1.5 + 0.8) * particleSize,
             color: `hsl(${180 + Math.random() * 20}, 70%, ${50 + Math.random() * 10}%)`,
             speedX: (Math.random() - 0.5) * 2,
             speedY: (Math.random() - 0.5) * 2
@@ -231,16 +244,19 @@ function createParticleTitle() {
       ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
       ctx.fill();
       
-      // Glow effect
+      // Glow effect (menos intenso en mobile)
+      const isMobile = window.innerWidth <= 768;
+      const glowMultiplier = isMobile ? 2 : 3;
+      
       const gradient = ctx.createRadialGradient(
         particle.x, particle.y, 0,
-        particle.x, particle.y, particle.size * 3
+        particle.x, particle.y, particle.size * glowMultiplier
       );
       gradient.addColorStop(0, particle.color);
       gradient.addColorStop(1, 'transparent');
       ctx.fillStyle = gradient;
       ctx.beginPath();
-      ctx.arc(particle.x, particle.y, particle.size * 3, 0, Math.PI * 2);
+      ctx.arc(particle.x, particle.y, particle.size * glowMultiplier, 0, Math.PI * 2);
       ctx.fill();
     });
     
@@ -251,7 +267,11 @@ function createParticleTitle() {
   animateParticles();
   
   // Redimensionar cuando cambia el tamaño
-  window.addEventListener('resize', resizeCanvas);
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(resizeCanvas, 250);
+  });
 }
 
 // ========== 5. TELAR DE CÓDIGO ==========

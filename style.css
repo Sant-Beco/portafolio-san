@@ -353,7 +353,7 @@ body {
   justify-content: center;
   position: relative;
   overflow: hidden;
-  padding: 100px 20px 80px;
+  padding: 140px 20px 100px;
 }
 
 .hero-bg {
@@ -373,22 +373,22 @@ body {
 }
 
 .gear-1 {
-  top: 15%;
-  left: 10%;
+  top: 20%;
+  left: 5%;
   animation-duration: 15s;
 }
 
 .gear-2 {
-  top: 60%;
-  right: 15%;
+  top: 65%;
+  right: 8%;
   animation-duration: 25s;
   animation-direction: reverse;
 }
 
 .gear-3 {
-  bottom: 20%;
-  left: 50%;
-  font-size: 50px;
+  bottom: 25%;
+  left: 12%;
+  font-size: 60px;
   animation-duration: 18s;
 }
 
@@ -410,7 +410,8 @@ body {
   background: var(--bg-card);
   border: 2px solid var(--accent);
   border-radius: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  margin-top: 20px;
   font-size: 14px;
   color: var(--accent);
   animation: float 3s ease-in-out infinite;
@@ -581,7 +582,7 @@ body {
 
 .scroll-indicator {
   position: absolute;
-  bottom: 40px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -1308,27 +1309,72 @@ body {
   
   .hero {
     padding: 120px 20px 80px;
+    min-height: 100vh;
+  }
+  
+  /* Título responsive - MEJORADO */
+  .hero-title {
+    font-size: 2.2rem;
+    line-height: 1.1;
+    margin-bottom: 25px;
+  }
+  
+  .hero-title-container {
+    margin-bottom: 25px;
+    max-width: 100%;
+  }
+  
+  /* Badge más pequeño en mobile */
+  .craft-badge {
+    font-size: 12px;
+    padding: 6px 16px;
+    margin-top: 10px;
+    margin-bottom: 30px;
   }
   
   .hero-cta {
     flex-direction: column;
+    gap: 15px;
+  }
+  
+  .hero-cta .btn {
+    width: 100%;
+    max-width: 280px;
   }
 
   .hero-description {
     font-size: 0.95rem;
+    padding: 0 10px;
   }
 
   .hero-badges {
     flex-direction: column;
     align-items: center;
+    gap: 10px;
+  }
+  
+  .badge {
+    font-size: 0.85rem;
+    padding: 6px 14px;
+  }
+  
+  /* Herramientas más pequeñas */
+  .hero-tools {
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+  
+  .tool-icon {
+    font-size: 32px;
   }
 
   .sobre-content h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   .sobre-content p {
     font-size: 1rem;
+    padding: 0 10px;
   }
 
   .cta-content h2 {
@@ -1345,7 +1391,7 @@ body {
 
   .btn-lg {
     width: 100%;
-    max-width: 300px;
+    max-width: 280px;
   }
 
   .theme-toggle {
@@ -1357,10 +1403,11 @@ body {
   
   .valores-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
   
   .toolbox {
-    padding: 25px;
+    padding: 25px 20px;
   }
   
   .footer-content {
@@ -1382,15 +1429,56 @@ body {
     display: none;
   }
   
-  /* Partículas del título visibles en mobile */
+  /* Partículas del título más sutiles en mobile */
   .particle-title-canvas {
-    opacity: 0.8;
+    opacity: 0.7;
+  }
+  
+  /* Engranajes más pequeños en mobile */
+  .gear {
+    font-size: 50px;
+    opacity: 0.2;
+  }
+  
+  .gear-3 {
+    font-size: 40px;
+  }
+  
+  /* Scroll indicator más pequeño */
+  .scroll-indicator {
+    font-size: 12px;
+    bottom: 15px;
+  }
+  
+  .scroll-arrow {
+    font-size: 20px;
   }
 }
 
 @media (max-width: 480px) {
   .hero-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .hero-description {
+    font-size: 0.9rem;
+  }
+  
+  .craft-badge {
+    font-size: 11px;
+    padding: 5px 12px;
+  }
+  
+  .hero-tools {
+    gap: 12px;
+  }
+  
+  .tool-icon {
+    font-size: 28px;
   }
   
   .timeline {
@@ -1402,6 +1490,20 @@ body {
   }
 
   .section-title {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+  }
+  
+  /* Partículas aún más sutiles */
+  .particle-title-canvas {
+    opacity: 0.5;
+  }
+  
+  /* Engranajes muy pequeños */
+  .gear {
+    font-size: 40px;
+  }
+  
+  .gear-3 {
+    font-size: 30px;
   }
 }
