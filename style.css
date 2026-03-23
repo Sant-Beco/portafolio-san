@@ -1312,6 +1312,13 @@ body {
     min-height: 100vh;
   }
   
+  /* Hero content centrado en mobile */
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
   /* Título responsive - MEJORADO */
   .hero-title {
     font-size: 2.2rem;
@@ -1335,6 +1342,7 @@ body {
   .hero-cta {
     flex-direction: column;
     gap: 15px;
+    align-items: center;
   }
   
   .hero-cta .btn {
