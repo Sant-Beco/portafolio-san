@@ -202,9 +202,9 @@ function createParticleTitle() {
     const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
-    // Crear partículas desde los píxeles (menos densidad en mobile)
-    const sampling = isMobile ? 4 : 3;
-    const particleSize = isSmallMobile ? 0.7 : (isMobile ? 0.9 : 1);
+    // Crear partículas - MÁS DENSAS Y BRILLANTES EN MOBILE
+    const sampling = isMobile ? 3 : 3; // Mismo sampling para mobile
+    const particleSize = isSmallMobile ? 1.0 : (isMobile ? 1.2 : 1); // Más grandes en mobile
     
     for (let y = 0; y < imageData.height; y += sampling) {
       for (let x = 0; x < imageData.width; x += sampling) {
@@ -212,13 +212,18 @@ function createParticleTitle() {
         const alpha = imageData.data[index + 3];
         
         if (alpha > 128) {
+          // Colores más brillantes en mobile
+          const hue = 180 + Math.random() * 20;
+          const saturation = isMobile ? 80 : 70; // Más saturación en mobile
+          const lightness = isMobile ? 60 : 50 + Math.random() * 10; // Más brillo en mobile
+          
           particles.push({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
             targetX: x,
             targetY: y,
             size: (Math.random() * 1.5 + 0.8) * particleSize,
-            color: `hsl(${180 + Math.random() * 20}, 70%, ${50 + Math.random() * 10}%)`,
+            color: `hsl(${hue}, ${saturation}%, ${lightness}%)`,
             speedX: (Math.random() - 0.5) * 2,
             speedY: (Math.random() - 0.5) * 2
           });
@@ -244,16 +249,25 @@ function createParticleTitle() {
       ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
       ctx.fill();
       
-      // Glow effect (menos intenso en mobile)
+      // Glow effect - MÁS INTENSO EN MOBILE
       const isMobile = window.innerWidth <= 768;
-      const glowMultiplier = isMobile ? 2 : 3;
+      const glowMultiplier = isMobile ? 4 : 3; // Más glow en mobile
       
       const gradient = ctx.createRadialGradient(
         particle.x, particle.y, 0,
         particle.x, particle.y, particle.size * glowMultiplier
       );
-      gradient.addColorStop(0, particle.color);
-      gradient.addColorStop(1, 'transparent');
+      
+      // Colores más brillantes en mobile
+      if (isMobile) {
+        gradient.addColorStop(0, particle.color);
+        gradient.addColorStop(0.3, particle.color.replace('60%', '50%'));
+        gradient.addColorStop(1, 'transparent');
+      } else {
+        gradient.addColorStop(0, particle.color);
+        gradient.addColorStop(1, 'transparent');
+      }
+      
       ctx.fillStyle = gradient;
       ctx.beginPath();
       ctx.arc(particle.x, particle.y, particle.size * glowMultiplier, 0, Math.PI * 2);
