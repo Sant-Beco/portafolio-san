@@ -323,18 +323,29 @@
 <section id="proyectos" class="proyectos">
   <div class="container">
     <div class="section-header">
-      <!-- ANIMACIÓN: Telar de código en H2 -->
       <h2 class="section-title">
         <span class="title-icon">⚒️</span>
         <span class="loom-title" data-text="Proyectos Construidos">Proyectos Construidos</span>
       </h2>
       <p class="section-subtitle">Soluciones creadas con código limpio y funcional</p>
+
+      <!-- FILTROS NUEVOS -->
+      <div class="proyecto-filters">
+        <button class="pf-btn active" data-filter="all">Todos</button>
+        <button class="pf-btn" data-filter="django">Django</button>
+        <button class="pf-btn" data-filter="api">API</button>
+        <button class="pf-btn" data-filter="python">Python</button>
+        <button class="pf-btn" data-filter="frontend">Frontend</button>
+        <button class="pf-btn" data-filter="iot">IoT</button>
+      </div>
     </div>
 
-    <div class="proyectos-grid">
-      <!-- Cultural Expression -->
-      <article class="proyecto-card">
+    <div class="proyectos-grid" id="proyectos-grid">
+
+      <!-- Cultural Expression — DESTACADO -->
+      <article class="proyecto-card proyecto-featured" data-cat="django">
         <div class="proyecto-badge">Django</div>
+        <div class="proyecto-scan"></div>
         <div class="proyecto-img">
           <img src="img/inicio.jpg" alt="Cultural Expression" onerror="this.src='https://via.placeholder.com/400x250/00adb5/ffffff?text=Cultural+Expression'"/>
           <div class="proyecto-overlay">
@@ -343,19 +354,22 @@
         </div>
         <div class="proyecto-info">
           <h3>🎨 Cultural Expression</h3>
-          <p>Plataforma web completa con autenticación de usuarios, CRUD de eventos, búsqueda avanzada y visualización de datos con Plotly. +50 usuarios registrados.</p>
+          <div class="proyecto-stats">
+            <span>+50 usuarios</span>
+            <span>CRUD completo</span>
+            <span>Visualización</span>
+          </div>
+          <p>Plataforma web completa con autenticación, CRUD de eventos, búsqueda avanzada y gráficos con Plotly.</p>
           <div class="proyecto-tech">
-            <span>Django</span>
-            <span>MySQL</span>
-            <span>HTML/CSS</span>
-            <span>Plotly</span>
+            <span>Django</span><span>MySQL</span><span>HTML/CSS</span><span>Plotly</span>
           </div>
         </div>
       </article>
 
       <!-- FastAPI -->
-      <article class="proyecto-card">
+      <article class="proyecto-card" data-cat="api">
         <div class="proyecto-badge">API</div>
+        <div class="proyecto-scan"></div>
         <div class="proyecto-img">
           <img src="img/img-fastapi.jpg" alt="FastAPI CRUD" onerror="this.src='https://via.placeholder.com/400x250/00adb5/ffffff?text=FastAPI+CRUD'"/>
           <div class="proyecto-overlay">
@@ -364,40 +378,42 @@
         </div>
         <div class="proyecto-info">
           <h3>🚀 FastAPI Customer CRUD</h3>
-          <p>API RESTful robusta para gestión de clientes con validaciones y MySQL.</p>
+          <div class="proyecto-stats">
+            <span>RESTful</span><span>Validaciones</span>
+          </div>
+          <p>API robusta para gestión de clientes con validaciones Pydantic y MySQL.</p>
           <div class="proyecto-tech">
-            <span>FastAPI</span>
-            <span>MySQL</span>
-            <span>SQLAlchemy</span>
-            <span>Pydantic</span>
+            <span>FastAPI</span><span>MySQL</span><span>SQLAlchemy</span><span>Pydantic</span>
           </div>
         </div>
       </article>
 
       <!-- Inspección -->
-      <article class="proyecto-card">
+      <article class="proyecto-card" data-cat="python">
         <div class="proyecto-badge">Python</div>
+        <div class="proyecto-scan"></div>
         <div class="proyecto-img">
-          <img src="img/misionales.png" alt="Inspección de Vehículos" onerror="this.src='https://via.placeholder.com/400x250/00adb5/ffffff?text=Inspeccion+Vehiculos'"/>
+          <img src="img/misionales.png" alt="Inspección de Vehículos" onerror="this.src='https://via.placeholder.com/400x250/00adb5/ffffff?text=Inspeccion'"/>
           <div class="proyecto-overlay">
             <a href="https://github.com/Sant-Beco" target="_blank" class="btn-proyecto">Ver en GitHub</a>
           </div>
         </div>
         <div class="proyecto-info">
           <h3>🚗 Inspección de Vehículos</h3>
-          <p>Sistema preoperacional para verificar el estado y funcionamiento de vehículos con generación automática de reportes en PDF.</p>
+          <div class="proyecto-stats">
+            <span>PDF automático</span><span>Preoperacional</span>
+          </div>
+          <p>Sistema preoperacional con generación automática de reportes en PDF.</p>
           <div class="proyecto-tech">
-            <span>FastAPI</span>
-            <span>Python</span>
-            <span>MySQL</span>
-            <span>WeasyPrint</span>
+            <span>FastAPI</span><span>Python</span><span>MySQL</span><span>WeasyPrint</span>
           </div>
         </div>
       </article>
 
       <!-- Garras -->
-      <article class="proyecto-card">
+      <article class="proyecto-card" data-cat="frontend">
         <div class="proyecto-badge">Frontend</div>
+        <div class="proyecto-scan"></div>
         <div class="proyecto-img">
           <img src="img/img-garras.jpg" alt="Garras E-commerce" onerror="this.src='https://via.placeholder.com/400x250/00adb5/ffffff?text=Garras'"/>
           <div class="proyecto-overlay">
@@ -406,18 +422,20 @@
         </div>
         <div class="proyecto-info">
           <h3>🐾 Garras</h3>
-          <p>E-commerce moderno para productos de mascotas con diseño responsive y atractivo.</p>
+          <div class="proyecto-stats">
+            <span>Responsive</span><span>Deploy live</span>
+          </div>
+          <p>E-commerce moderno para productos de mascotas con diseño responsive.</p>
           <div class="proyecto-tech">
-            <span>HTML5</span>
-            <span>CSS3</span>
-            <span>Responsive</span>
+            <span>HTML5</span><span>CSS3</span><span>Responsive</span>
           </div>
         </div>
       </article>
 
       <!-- IoT -->
-      <article class="proyecto-card">
+      <article class="proyecto-card" data-cat="iot">
         <div class="proyecto-badge">IoT</div>
+        <div class="proyecto-scan"></div>
         <div class="proyecto-img">
           <img src="img/img-micro.jpg" alt="Estación Climática IoT" onerror="this.src='https://via.placeholder.com/400x250/00adb5/ffffff?text=Estacion+Climatica'"/>
           <div class="proyecto-overlay">
@@ -426,19 +444,19 @@
         </div>
         <div class="proyecto-info">
           <h3>📡 Estación Climática IoT</h3>
-          <p>Sistema de monitoreo en tiempo real de temperatura, humedad y luz para agricultura. Ayuda a agricultores a tomar decisiones basadas en datos ambientales.</p>
+          <div class="proyecto-stats">
+            <span>Tiempo real</span><span>3 sensores</span>
+          </div>
+          <p>Monitoreo de temperatura, humedad y luz para agricultura. Decisiones basadas en datos.</p>
           <div class="proyecto-tech">
-            <span>Arduino</span>
-            <span>C++</span>
-            <span>DHT22</span>
-            <span>BH1750</span>
+            <span>Arduino</span><span>C++</span><span>DHT22</span><span>BH1750</span>
           </div>
         </div>
       </article>
+
     </div>
   </div>
 </section>
-
 <!-- EXPERIENCIA -->
 <section id="experiencia" class="experiencia">
   <div class="container">
@@ -545,14 +563,7 @@
           <div class="info-icon">📧</div>
           <div>
             <h4>Email</h4>
-            <a href="mailto:santiagobedoyacorrales@gmail.com">santiagobedoyacorrales@gmail.com</a>
-          </div>
-        </div>
-        <div class="info-item">
-          <div class="info-icon">📱</div>
-          <div>
-            <h4>Teléfono</h4>
-            <a href="tel:+573102532893">+57 310 253 2893</a>
+            <a href="mailto:sanprogramador8@gmail.com">sanprogramador8@gmail.com</a>
           </div>
         </div>
         <div class="info-item">
@@ -599,8 +610,7 @@
       <div class="footer-links">
         <a href="https://github.com/Sant-Beco" target="_blank" aria-label="GitHub">GitHub</a>
         <a href="https://www.linkedin.com/in/santiago-bedoya-corrales/" target="_blank" aria-label="LinkedIn">LinkedIn</a>
-        <a href="mailto:santiagobedoyacorrales@gmail.com" aria-label="Email">Email</a>
-        <a href="tel:+573102532893" aria-label="Llamar">Llamar</a>
+        <a href="mailto:sanprogramador8@gmail.com" aria-label="Email">Email</a>
       </div>
     </div>
     <div class="footer-bottom">

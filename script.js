@@ -337,6 +337,51 @@ function createCodeLoom() {
   });
 }
 
+// ========== 6. PROYECTOS: FILTROS + ENTRADA ANIMADA ==========
+function initProyectos() {
+  const btns = document.querySelectorAll('.pf-btn');
+  const cards = document.querySelectorAll('.proyecto-card');
+  const grid = document.getElementById('proyectos-grid');
+
+  // Filtros
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+
+      let firstVisible = true;
+      cards.forEach(card => {
+        const match = f === 'all' || card.dataset.cat === f;
+        card.style.display = match ? '' : 'none';
+        card.classList.remove('proyecto-featured');
+        if (match && firstVisible) {
+          card.classList.add('proyecto-featured');
+          firstVisible = false;
+        }
+      });
+
+      grid.style.gridTemplateColumns = f === 'all'
+        ? '1.6fr 1fr 1fr'
+        : 'repeat(auto-fit, minmax(300px, 1fr))';
+    });
+  });
+
+  // Entrada escalonada con IntersectionObserver
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, i * 100);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  cards.forEach(card => observer.observe(card));
+}
+
 // ========== INICIALIZACIÓN ==========
 document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
