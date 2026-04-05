@@ -329,7 +329,7 @@
       </h2>
       <p class="section-subtitle">Soluciones creadas con código limpio y funcional</p>
 
-      <!-- FILTROS NUEVOS -->
+      <!-- FILTROS -->
       <div class="proyecto-filters">
         <button class="pf-btn active" data-filter="all">Todos</button>
         <button class="pf-btn" data-filter="django">Django</button>
@@ -337,12 +337,13 @@
         <button class="pf-btn" data-filter="python">Python</button>
         <button class="pf-btn" data-filter="frontend">Frontend</button>
         <button class="pf-btn" data-filter="iot">IoT</button>
+        <button class="pf-btn" data-filter="freelance">Freelance</button>
       </div>
     </div>
 
     <div class="proyectos-grid" id="proyectos-grid">
 
-      <!-- Cultural Expression — DESTACADO -->
+      <!-- 1. Cultural Expression — DESTACADO (más impacto) -->
       <article class="proyecto-card proyecto-featured" data-cat="django">
         <div class="proyecto-badge">Django</div>
         <div class="proyecto-scan"></div>
@@ -366,7 +367,51 @@
         </div>
       </article>
 
-      <!-- FastAPI -->
+      <!-- 2. CIPHER — Documental de Ciberseguridad -->
+      <article class="proyecto-card" data-cat="python">
+        <div class="proyecto-badge">Python</div>
+        <div class="proyecto-scan"></div>
+        <div class="proyecto-img">
+          <img src="img/img-cipher.jpg" alt="CIPHER Documental Ciberseguridad" onerror="this.src='https://via.placeholder.com/400x250/00adb5/ffffff?text=CIPHER+Doc'"/>
+          <div class="proyecto-overlay">
+            <a href="https://cibersegurida.netlify.app/" target="_blank" class="btn-proyecto">Ver Demo</a>
+          </div>
+        </div>
+        <div class="proyecto-info">
+          <h3>🔐 CIPHER — Documental</h3>
+          <div class="proyecto-stats">
+            <span>En construcción</span><span>Deploy live</span>
+          </div>
+          <p>Documental interactivo de aprendizaje sobre ciberseguridad. Diseño estilo terminal, historia, figuras clave e impacto global.</p>
+          <div class="proyecto-tech">
+            <span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>HTML/CSS</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3. DeleteMeta — Herramienta de privacidad -->
+      <article class="proyecto-card" data-cat="frontend">
+        <div class="proyecto-badge">Frontend</div>
+        <div class="proyecto-scan"></div>
+        <div class="proyecto-img">
+          <img src="img/img-deletemeta.jpg" alt="DeleteMeta" onerror="this.src='https://via.placeholder.com/400x250/00adb5/ffffff?text=DeleteMeta'"/>
+          <div class="proyecto-overlay">
+            <a href="https://deletedatasan.netlify.app/" target="_blank" class="btn-proyecto">Ver Demo</a>
+          </div>
+        </div>
+        <div class="proyecto-info">
+          <h3>🛡️ DeleteMeta</h3>
+          <div class="proyecto-stats">
+            <span>100% local</span><span>Privacidad</span><span>Deploy live</span>
+          </div>
+          <p>Herramienta para inspeccionar, editar y limpiar metadatos EXIF de imágenes antes de publicarlas. Sin servidores, todo procesado en el navegador.</p>
+          <div class="proyecto-tech">
+            <span>JavaScript</span><span>EXIF</span><span>HTML5</span><span>CSS3</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4. FastAPI Customer CRUD -->
       <article class="proyecto-card" data-cat="api">
         <div class="proyecto-badge">API</div>
         <div class="proyecto-scan"></div>
@@ -388,7 +433,7 @@
         </div>
       </article>
 
-      <!-- Inspección -->
+      <!-- 5. Inspección de Vehículos -->
       <article class="proyecto-card" data-cat="python">
         <div class="proyecto-badge">Python</div>
         <div class="proyecto-scan"></div>
@@ -410,7 +455,29 @@
         </div>
       </article>
 
-      <!-- Garras -->
+      <!-- 6. Invitación XV — Freelance -->
+      <article class="proyecto-card" data-cat="freelance">
+        <div class="proyecto-badge">Freelance</div>
+        <div class="proyecto-scan"></div>
+        <div class="proyecto-img">
+          <img src="img/img-xv.jpg" alt="Invitación XV Sofía" onerror="this.src='https://via.placeholder.com/400x250/00adb5/ffffff?text=Invitacion+XV'"/>
+          <div class="proyecto-overlay">
+            <a href="https://invitacion15ana.netlify.app/" target="_blank" class="btn-proyecto">Ver Demo</a>
+          </div>
+        </div>
+        <div class="proyecto-info">
+          <h3>🌸 Invitación XV — Sofía</h3>
+          <div class="proyecto-stats">
+            <span>Countdown en vivo</span><span>RSVP integrado</span><span>Deploy live</span>
+          </div>
+          <p>Invitación digital para quinceañera con cuenta regresiva en tiempo real, poema personalizado y formulario de confirmación de asistencia.</p>
+          <div class="proyecto-tech">
+            <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Google Forms</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 7. Garras -->
       <article class="proyecto-card" data-cat="frontend">
         <div class="proyecto-badge">Frontend</div>
         <div class="proyecto-scan"></div>
@@ -432,7 +499,7 @@
         </div>
       </article>
 
-      <!-- IoT -->
+      <!-- 8. Estación Climática IoT -->
       <article class="proyecto-card" data-cat="iot">
         <div class="proyecto-badge">IoT</div>
         <div class="proyecto-scan"></div>
@@ -563,7 +630,7 @@
           <div class="info-icon">📧</div>
           <div>
             <h4>Email</h4>
-            <a href="mailto:sanprogramador8@gmail.com">sanprogramador8@gmail.com</a>
+            <a href="/cdn-cgi/l/email-protection#5b283a352b29343c293a363a3f3429631b3c363a323775383436"><span class="__cf_email__" data-cfemail="9deefcf3edeff2faeffcf0fcf9f2efa5ddfaf0fcf4f1b3fef2f0">[email&#160;protected]</span></a>
           </div>
         </div>
         <div class="info-item">
