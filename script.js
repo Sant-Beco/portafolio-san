@@ -388,8 +388,9 @@ document.addEventListener('DOMContentLoaded', () => {
     createBinaryRain();
     animateASCIITitle();
     createThreadWeaving();
-    createParticleTitle(); // Nueva función
+    createParticleTitle();
     createCodeLoom();
+    initProyectos(); // ← AGREGADO: Inicializar filtros y animaciones de proyectos
   }, 100);
 });
 
