@@ -382,6 +382,140 @@ function initProyectos() {
   cards.forEach(card => observer.observe(card));
 }
 
+// ========== 7. CTA FLOTANTE ==========
+function initFloatingCTA() {
+  const cta = document.querySelector('.floating-cta');
+  if (!cta) return;
+  
+  let lastScroll = 0;
+  const showAt = 500; // Mostrar después de 500px de scroll
+  
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll > showAt) {
+      cta.classList.add('visible');
+    } else {
+      cta.classList.remove('visible');
+    }
+    
+    lastScroll = currentScroll;
+  });
+  
+  // Click handler
+  const btn = cta.querySelector('.floating-cta-btn');
+  btn?.addEventListener('click', () => {
+    document.querySelector('#contacto')?.scrollIntoView({ behavior: 'smooth' });
+  });
+}
+
+// ========== 8. CONTADOR ANIMADO DE ESTADÍSTICAS ==========
+function initCounterAnimation() {
+  const stats = document.querySelectorAll('.stat-number');
+  if (!stats.length) return;
+  
+  const animateCounter = (element, target) => {
+    const duration = 2000; // 2 segundos
+    const start = 0;
+    const increment = target / (duration / 16); // 60 FPS
+    let current = start;
+    
+    const updateCounter = () => {
+      current += increment;
+      if (current < target) {
+        // Formatear según el tipo de dato
+        if (element.dataset.type === 'percent') {
+          element.textContent = Math.floor(current) + '%';
+        } else if (element.dataset.type === 'plus') {
+          element.textContent = '+' + Math.floor(current);
+        } else {
+          element.textContent = Math.floor(current);
+        }
+        requestAnimationFrame(updateCounter);
+      } else {
+        // Valor final
+        if (element.dataset.type === 'percent') {
+          element.textContent = target + '%';
+        } else if (element.dataset.type === 'plus') {
+          element.textContent = '+' + target;
+        } else {
+          element.textContent = target;
+        }
+      }
+    };
+    
+    updateCounter();
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const element = entry.target;
+        const target = parseInt(element.dataset.target);
+        
+        // Agregar clase visible al contenedor
+        element.closest('.stat-item')?.classList.add('visible');
+        
+        // Animar contador
+        setTimeout(() => {
+          animateCounter(element, target);
+        }, 200);
+        
+        observer.unobserve(element);
+      }
+    });
+  }, { threshold: 0.5 });
+  
+  stats.forEach(stat => observer.observe(stat));
+}
+
+// ========== 9. SCROLL REVEAL GENÉRICO ==========
+function initScrollReveal() {
+  const reveals = document.querySelectorAll('.reveal');
+  if (!reveals.length) return;
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  
+  reveals.forEach(reveal => observer.observe(reveal));
+}
+
+// ========== 10. TESTIMONIOS SCROLL ==========
+function initTestimonios() {
+  const cards = document.querySelectorAll('.testimonio-card');
+  if (!cards.length) return;
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, index * 150); // Delay escalonado
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  
+  cards.forEach(card => observer.observe(card));
+}
+
+// ========== 11. AVATAR LOADER ==========
+function initAvatar() {
+  const avatar = document.querySelector('.hero-avatar');
+  if (!avatar) return;
+  
+  // Simular carga (o esperar imagen real)
+  setTimeout(() => {
+    avatar.classList.add('loaded');
+  }, 300);
+}
+
 // ========== INICIALIZACIÓN ==========
 document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
@@ -390,7 +524,12 @@ document.addEventListener('DOMContentLoaded', () => {
     createThreadWeaving();
     createParticleTitle();
     createCodeLoom();
-    initProyectos(); // ← AGREGADO: Inicializar filtros y animaciones de proyectos
+    initProyectos();
+    initFloatingCTA();        // Nuevo
+    initCounterAnimation();   // Nuevo
+    initScrollReveal();       // Nuevo
+    initTestimonios();        // Nuevo
+    initAvatar();             // Nuevo
   }, 100);
 });
 
