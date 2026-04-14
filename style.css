@@ -1,22 +1,17 @@
 /* ==================== VARIABLES ==================== */
 :root {
-  /* Colores oscuros (default) */
-  --bg-primary: #0a0a0a;
-  --bg-secondary: #1a1a1a;
-  --bg-card: #222;
-  --text-primary: #ffffff;
-  --text-secondary: #b0b0b0;
-  --accent: #00adb5;
-  --accent-hover: #00969d;
-  --border: rgba(255, 255, 255, 0.1);
-  
-  /* Sombras */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
-  
-  /* Efectos */
-  --glow: 0 0 20px rgba(0, 173, 181, 0.3);
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #262626;
+  --bg-card: #333333;
+  --text-primary: #f5f5f5;
+  --text-secondary: #b8b8b8;
+  --accent: #ff6b35;
+  --accent-hover: #e55a25;
+  --border: rgba(255, 255, 255, 0.08);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.4);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.5);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.6);
+  --glow: 0 0 20px rgba(255, 107, 53, 0.4);
 }
 
 [data-theme="light"] {
@@ -65,7 +60,6 @@ body {
   background: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.6;
-  transition: background 0.3s ease, color 0.3s ease;
   overflow-x: hidden;
 }
 
@@ -162,15 +156,10 @@ body {
   }
   
   .title-highlight {
-    /* Mantener gradient en "SOLUCIONES" */
-    background: linear-gradient(135deg, #00adb5, #00d4dd);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    /* Sombra extra para el highlight */
-    filter: drop-shadow(0 0 10px rgba(0, 173, 181, 0.8))
-            drop-shadow(2px 2px 4px rgba(0, 0, 0, 1));
-  }
+  background: linear-gradient(135deg, #ff6b35, #ffd93d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* 5. TELAR DE CÓDIGO */
@@ -211,7 +200,7 @@ body {
   inset: 0;
   pointer-events: none;
 }
-
+}
 .horizontal-thread {
   position: absolute;
   left: 0;
@@ -492,7 +481,7 @@ body {
 }
 
 .title-highlight {
-  background: linear-gradient(135deg, var(--accent), #007c82);
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -592,15 +581,10 @@ body {
 }
 
 .btn-primary {
-  background: var(--accent);
-  color: white;
-  box-shadow: var(--shadow-md);
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
 }
-
 .btn-primary:hover {
-  background: var(--accent-hover);
-  transform: translateY(-3px);
-  box-shadow: var(--glow);
+  background: linear-gradient(135deg, #e55a25, #e0821a);
 }
 
 .btn-secondary {
