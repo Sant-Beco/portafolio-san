@@ -152,7 +152,7 @@ body {
       2px 2px 4px rgba(0, 0, 0, 1),
       -2px -2px 4px rgba(0, 0, 0, 1);
     /* Stroke sutil para definición */
-    -webkit-text-stroke: 0.5px rgba(0, 173, 181, 0.3);
+    -webkit-text-stroke: 0.5px #ff6b35;
   }
   
   .title-highlight {
