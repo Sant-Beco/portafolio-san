@@ -185,7 +185,7 @@ function createParticleTitle() {
     }
     
     ctx.font = `bold ${fontSize}px Bebas Neue`;
-    ctx.fillStyle = '#00adb5';
+    ctx.fillStyle = '#ff6b35';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     
@@ -213,7 +213,7 @@ function createParticleTitle() {
         
         if (alpha > 128) {
           // Colores más brillantes en mobile
-          const hue = 180 + Math.random() * 20;
+          const hue = 15 + Math.random() * 20;
           const saturation = isMobile ? 80 : 70; // Más saturación en mobile
           const lightness = isMobile ? 60 : 50 + Math.random() * 10; // Más brillo en mobile
           
