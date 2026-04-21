@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Misionales — Documentación Completa</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --verde: #1D9E75;
+  --verde-bright: #2ECC9A;
+  --verde-dim: #0F6E56;
+  --bg: #0E0E16;
+  --bg2: #14141F;
+  --bg3: #1C1C2E;
+  --bg4: #242438;
+  --text: #E8E8F0;
+  --text-muted: #8888AA;
+  --text-dim: #55556A;
+  --azul: #3B82F6;
+  --amber: #F59E0B;
+  --red: #EF4444;
+  --purple: #8B5CF6;
+  --border: rgba(255,255,255,0.07);
+  --border-green: rgba(29,158,117,0.3);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* NAV TABS */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(14,14,22,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 1.5rem;
+  display: flex; gap: 0; overflow-x: auto;
+}
+.nav-tab {
+  padding: 1rem 1.2rem;
+  font-family: 'Syne', sans-serif;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  cursor: pointer;
+  border: none; background: none;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.nav-tab:hover { color: var(--text); }
+.nav-tab.active { color: var(--verde); border-bottom-color: var(--verde); }
+
+/* SECTIONS */
+.section { display: none; padding: 2rem 1.5rem; max-width: 900px; margin: 0 auto; }
+.section.active { display: block; animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  background: radial-gradient(ellipse at 50% 0%, rgba(29,158,117,0.12) 0%, transparent 70%);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2rem;
+}
+.hero-badge {
+  display: inline-block;
+  background: rgba(29,158,117,0.15);
+  border: 1px solid var(--border-green);
+  color: var(--verde);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; padding: 4px 12px;
+  border-radius: 20px; margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+.hero h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, #fff 0%, var(--verde) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+.hero p { color: var(--text-muted); font-size: 15px; }
+
+/* SECTION TITLE */
+.sec-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.5rem; font-weight: 700;
+  color: var(--text); margin-bottom: 0.25rem;
+}
+.sec-sub { color: var(--text-muted); font-size: 13px; margin-bottom: 2rem; }
+
+/* CARDS */
+.card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+  transition: border-color 0.2s;
+}
+.card:hover { border-color: var(--border-green); }
+.card-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 15px; font-weight: 700;
+  color: var(--text); margin-bottom: 0.4rem;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.card-body { font-size: 13.5px; color: var(--text-muted); line-height: 1.7; }
+
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+@media (max-width: 600px) { .grid2, .grid3 { grid-template-columns: 1fr; } }
+
+/* BADGE */
+.badge {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; padding: 2px 8px;
+  border-radius: 4px; margin-right: 4px;
+  font-weight: 600;
+}
+.badge-green { background: rgba(29,158,117,0.2); color: var(--verde); }
+.badge-blue { background: rgba(59,130,246,0.2); color: #60A5FA; }
+.badge-amber { background: rgba(245,158,11,0.2); color: #FCD34D; }
+.badge-red { background: rgba(239,68,68,0.2); color: #FCA5A5; }
+.badge-purple { background: rgba(139,92,246,0.2); color: #C4B5FD; }
+
+/* CODE BLOCK */
+.code {
+  background: #0A0A14;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--verde-bright);
+  overflow-x: auto;
+  margin: 0.75rem 0;
+  line-height: 1.8;
+}
+.code .comment { color: var(--text-dim); }
+.code .key { color: var(--amber); }
+.code .val { color: #60A5FA; }
+.code .str { color: #F9A8D4; }
+
+/* FLOW DIAGRAM */
+.flow {
+  display: flex; align-items: center; flex-wrap: wrap;
+  gap: 0.5rem; margin: 1.5rem 0;
+}
+.flow-box {
+  background: var(--bg4);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text);
+  white-space: nowrap;
+}
+.flow-box.green { border-color: var(--verde-dim); color: var(--verde); background: rgba(29,158,117,0.08); }
+.flow-box.blue { border-color: rgba(59,130,246,0.4); color: #60A5FA; background: rgba(59,130,246,0.08); }
+.flow-box.amber { border-color: rgba(245,158,11,0.4); color: #FCD34D; background: rgba(245,158,11,0.08); }
+.flow-arrow { color: var(--text-dim); font-size: 16px; }
+
+/* TABLE */
+.tbl { width: 100%; border-collapse: collapse; font-size: 13px; margin: 1rem 0; }
+.tbl th {
+  background: var(--bg4); color: var(--verde);
+  font-family: 'Syne', sans-serif; font-size: 11px;
+  font-weight: 600; letter-spacing: 0.5px;
+  padding: 0.6rem 1rem; text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.tbl td {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+  vertical-align: top;
+}
+.tbl td:first-child { color: var(--text); font-family: 'JetBrains Mono', monospace; font-size: 12px; }
+.tbl tr:hover td { background: rgba(255,255,255,0.02); }
+
+/* FOLDER TREE */
+.tree { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 2; }
+.tree-line { display: flex; align-items: center; gap: 0.5rem; }
+.tree-indent { padding-left: 1.5rem; }
+.tree-dir { color: #60A5FA; }
+.tree-file { color: var(--text-muted); }
+.tree-git { color: var(--amber); font-size: 10px; }
+.tree-note { color: var(--text-dim); font-size: 11px; margin-left: auto; }
+
+/* LAYER */
+.layer {
+  border-left: 3px solid var(--verde);
+  padding-left: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.layer-title { font-family: 'Syne', sans-serif; font-weight: 700; color: var(--text); font-size: 14px; margin-bottom: 0.25rem; }
+.layer-sub { font-size: 13px; color: var(--text-muted); }
+
+/* STEP */
+.step {
+  display: flex; gap: 1rem; margin-bottom: 1.25rem;
+  align-items: flex-start;
+}
+.step-num {
+  width: 28px; height: 28px; flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(29,158,117,0.2);
+  border: 1px solid var(--verde-dim);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; color: var(--verde); font-weight: 600;
+}
+.step-content { flex: 1; }
+.step-title { font-weight: 600; color: var(--text); font-size: 14px; margin-bottom: 0.2rem; }
+.step-desc { font-size: 13px; color: var(--text-muted); }
+
+/* SECURITY ITEM */
+.sec-item {
+  display: flex; gap: 1rem; align-items: flex-start;
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1rem 1.25rem;
+  margin-bottom: 0.75rem;
+}
+.sec-icon {
+  width: 36px; height: 36px; flex-shrink: 0;
+  border-radius: 8px; display: flex;
+  align-items: center; justify-content: center;
+  font-size: 16px;
+}
+.sec-content { flex: 1; }
+.sec-name { font-weight: 600; color: var(--text); font-size: 14px; }
+.sec-desc { font-size: 12.5px; color: var(--text-muted); margin-top: 2px; }
+
+/* ROADMAP */
+.roadmap-item {
+  display: flex; gap: 1rem; align-items: flex-start;
+  padding: 0.875rem 1rem;
+  border-radius: 8px; margin-bottom: 0.5rem;
+}
+.roadmap-item.p1 { background: rgba(239,68,68,0.08); border-left: 3px solid #EF4444; }
+.roadmap-item.p2 { background: rgba(245,158,11,0.08); border-left: 3px solid #F59E0B; }
+.roadmap-item.p3 { background: rgba(59,130,246,0.08); border-left: 3px solid #3B82F6; }
+.roadmap-label { font-size: 10px; font-weight: 700; letter-spacing: 1px; font-family: 'JetBrains Mono', monospace; margin-bottom: 2px; }
+.roadmap-title { font-size: 14px; font-weight: 600; color: var(--text); }
+.roadmap-desc { font-size: 12px; color: var(--text-muted); }
+
+/* DEPLOY STEP */
+.deploy-phase {
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+}
+.deploy-phase-header {
+  display: flex; align-items: center; gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.phase-num {
+  background: var(--verde-dim); color: #fff;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; font-weight: 700;
+  padding: 3px 8px; border-radius: 6px;
+}
+.phase-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px; color: var(--text); }
+
+hr.divider { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-badge">ANTIOQUEÑA DE INCUBACIÓN · SST</div>
+  <h1>Misionales</h1>
+  <p>Sistema de Inspección Preoperacional de Vehículos — Documentación técnica completa</p>
+</div>
+
+<nav class="nav">
+  <button class="nav-tab active" onclick="show('modulos', this)">📦 Módulos</button>
+  <button class="nav-tab" onclick="show('bd', this)">🗄️ Base de Datos</button>
+  <button class="nav-tab" onclick="show('arquitectura', this)">🏗️ Arquitectura</button>
+  <button class="nav-tab" onclick="show('herramientas', this)">🔧 Herramientas</button>
+  <button class="nav-tab" onclick="show('carpetas', this)">📁 Carpetas</button>
+  <button class="nav-tab" onclick="show('seguridad', this)">🔒 Seguridad</button>
+  <button class="nav-tab" onclick="show('alcance', this)">🚀 Alcance</button>
+  <button class="nav-tab" onclick="show('deploy', this)">☁️ Deploy</button>
+</nav>
+
+<!-- ===================== MÓDULOS ===================== -->
+<div id="modulos" class="section active">
+  <p class="sec-title">Módulos del sistema</p>
+  <p class="sec-sub">8 módulos que trabajan juntos para cubrir el proceso completo de inspección</p>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="card-title">🔐 Autenticación</div>
+      <div class="card-body">Login con usuario + PIN hasheado. Rate limiting de 5 intentos, sesión con token de 24h, doble canal cookie + localStorage.</div>
+      <div style="margin-top:0.75rem"><span class="badge badge-amber">security.py</span><span class="badge badge-blue">login.html</span></div>
+    </div>
+    <div class="card">
+      <div class="card-title">📋 Inspección preoperacional</div>
+      <div class="card-body">Formulario con todos los ítems del vehículo (llantas, frenos, luces, documentos). El conductor firma digitalmente en el campo canvas.</div>
+      <div style="margin-top:0.75rem"><span class="badge badge-amber">routes_inspeccion.py</span><span class="badge badge-blue">form.html</span></div>
+    </div>
+    <div class="card">
+      <div class="card-title">📄 Generación de PDF</div>
+      <div class="card-body">Al enviar el formulario, WeasyPrint toma la plantilla HTML, inyecta los datos y genera el PDF con logo, fuentes Futura y firma del conductor.</div>
+      <div style="margin-top:0.75rem"><span class="badge badge-amber">utils_pdf.py</span><span class="badge badge-blue">reporte.html</span></div>
+    </div>
+    <div class="card">
+      <div class="card-title">📊 Historial del conductor</div>
+      <div class="card-body">Cada conductor ve únicamente sus propias inspecciones. Puede descargar PDFs individuales o un consolidado de sus últimas 15 inspecciones.</div>
+      <div style="margin-top:0.75rem"><span class="badge badge-amber">routes_inspeccion.py</span></div>
+    </div>
+    <div class="card">
+      <div class="card-title">👑 Panel administrador</div>
+      <div class="card-body">El admin ve todas las inspecciones de todos los conductores, gestiona usuarios, cambia PINs y descarga cualquier reporte.</div>
+      <div style="margin-top:0.75rem"><span class="badge badge-amber">routes_admin.py</span><span class="badge badge-blue">admin/</span></div>
+    </div>
+    <div class="card">
+      <div class="card-title">📑 Reportes consolidados</div>
+      <div class="card-body">Al acumular 15 inspecciones, se genera un PDF consolidado, las filas se archivan en <code>reportes_inspeccion</code> y se liberan de la tabla activa.</div>
+      <div style="margin-top:0.75rem"><span class="badge badge-amber">utils_pdf.py</span></div>
+    </div>
+    <div class="card">
+      <div class="card-title">👤 Gestión de usuarios</div>
+      <div class="card-body">El admin crea, edita y desactiva usuarios. Puede asignar rol <code>conductor</code> o <code>admin</code>. El campo <code>activo=0</code> bloquea el acceso aunque haya token válido.</div>
+      <div style="margin-top:0.75rem"><span class="badge badge-amber">routes_admin.py</span></div>
+    </div>
+    <div class="card">
+      <div class="card-title">📝 Auditoría</div>
+      <div class="card-body">Cada acción del admin (crear/editar/eliminar) queda registrada automáticamente en <code>logs_auditoria</code>. No se puede borrar desde la interfaz.</div>
+      <div style="margin-top:0.75rem"><span class="badge badge-amber">models.py</span></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <p class="sec-title" style="font-size:1rem">Flujo completo de una inspección</p>
+  <div class="flow" style="margin-top:1rem">
+    <div class="flow-box green">Conductor abre el sistema</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box blue">POST /auth/login</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box">Token 24h</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box green">Llena el formulario</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box blue">POST /inspeccion/nueva</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box amber">WeasyPrint → PDF</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box green">Descarga el PDF</div>
+  </div>
+</div>
+
+<!-- ===================== BASE DE DATOS ===================== -->
+<div id="bd" class="section">
+  <p class="sec-title">Base de Datos — MySQL</p>
+  <p class="sec-sub">4 tablas relacionadas que guardan todo el ciclo de vida de las inspecciones</p>
+
+  <div class="card" style="border-color: rgba(29,158,117,0.4)">
+    <div class="card-title">🧑 usuarios</div>
+    <table class="tbl">
+      <tr><th>Campo</th><th>Tipo</th><th>Descripción</th></tr>
+      <tr><td>id</td><td><span class="badge badge-blue">PK INT</span></td><td>Identificador único, autoincremental</td></tr>
+      <tr><td>nombre</td><td><span class="badge badge-green">VARCHAR</span></td><td>Nombre de usuario (login), único</td></tr>
+      <tr><td>nombre_visible</td><td><span class="badge badge-green">VARCHAR</span></td><td>Nombre completo que aparece en pantalla y en el PDF</td></tr>
+      <tr><td>rol</td><td><span class="badge badge-amber">ENUM</span></td><td><code>conductor</code> o <code>admin</code> — define qué ve y qué puede hacer</td></tr>
+      <tr><td>pin_hash</td><td><span class="badge badge-red">VARCHAR</span></td><td>bcrypt hash del PIN — nunca se guarda el PIN en texto plano</td></tr>
+      <tr><td>token</td><td><span class="badge badge-green">VARCHAR</span></td><td>Token de sesión activo, se invalida al hacer logout</td></tr>
+      <tr><td>token_expira</td><td><span class="badge badge-green">DATETIME</span></td><td>Expiración del token — 24 horas desde el último login</td></tr>
+      <tr><td>activo</td><td><span class="badge badge-amber">BOOL</span></td><td>0 bloquea el usuario aunque tenga token válido</td></tr>
+    </table>
+  </div>
+
+  <div class="card" style="border-color: rgba(59,130,246,0.4)">
+    <div class="card-title">📋 inspecciones</div>
+    <table class="tbl">
+      <tr><th>Campo</th><th>Tipo</th><th>Descripción</th></tr>
+      <tr><td>id</td><td><span class="badge badge-blue">PK INT</span></td><td>Identificador único</td></tr>
+      <tr><td>usuario_id</td><td><span class="badge badge-purple">FK INT</span></td><td>Referencia a <code>usuarios.id</code> — clave foránea</td></tr>
+      <tr><td>fecha_hora</td><td><span class="badge badge-green">DATETIME</span></td><td>Timestamp exacto del envío del formulario</td></tr>
+      <tr><td>placa</td><td><span class="badge badge-green">VARCHAR</span></td><td>Placa del vehículo inspeccionado</td></tr>
+      <tr><td>aspectos</td><td><span class="badge badge-amber">JSON</span></td><td>Estado de cada ítem: <code>{"1": {"valor":"B","label":"Llantas..."}}</code></td></tr>
+      <tr><td>observaciones</td><td><span class="badge badge-green">TEXT</span></td><td>Campo libre de novedades o comentarios</td></tr>
+      <tr><td>firma_file</td><td><span class="badge badge-green">VARCHAR</span></td><td>Nombre del archivo PNG de la firma — imagen en disco</td></tr>
+      <tr><td>pdf_file</td><td><span class="badge badge-green">VARCHAR</span></td><td>Nombre del PDF generado — guardado en <code>generated_pdfs/</code></td></tr>
+    </table>
+  </div>
+
+  <div class="grid2">
+    <div class="card" style="border-color: rgba(245,158,11,0.4)">
+      <div class="card-title">📑 reportes_inspeccion</div>
+      <div class="card-body" style="margin-bottom:0.75rem">Archivo de consolidados. Al llegar a 15 inspecciones se genera un PDF consolidado y las filas se mueven aquí desde <code>inspecciones</code>.</div>
+      <table class="tbl">
+        <tr><th>Campo</th><th>Uso</th></tr>
+        <tr><td>id</td><td>Clave primaria</td></tr>
+        <tr><td>usuario_id</td><td>FK a usuarios</td></tr>
+        <tr><td>fecha_generacion</td><td>Cuándo se consolidó</td></tr>
+        <tr><td>pdf_file</td><td>Ruta al PDF consolidado</td></tr>
+      </table>
+    </div>
+    <div class="card" style="border-color: rgba(139,92,246,0.4)">
+      <div class="card-title">📝 logs_auditoria</div>
+      <div class="card-body" style="margin-bottom:0.75rem">Historial inmutable de acciones administrativas. Solo inserción, nunca eliminación desde la interfaz.</div>
+      <table class="tbl">
+        <tr><th>Campo</th><th>Uso</th></tr>
+        <tr><td>id</td><td>Clave primaria</td></tr>
+        <tr><td>admin_id</td><td>Quién hizo la acción</td></tr>
+        <tr><td>accion</td><td>crear / editar / eliminar</td></tr>
+        <tr><td>descripcion</td><td>Detalle de la acción</td></tr>
+        <tr><td>fecha_hora</td><td>Timestamp exacto</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== ARQUITECTURA ===================== -->
+<div id="arquitectura" class="section">
+  <p class="sec-title">Arquitectura del sistema</p>
+  <p class="sec-sub">4 capas que procesan cada petición de principio a fin</p>
+
+  <div class="flow" style="justify-content: center; margin-bottom: 2rem; gap: 0.75rem; flex-wrap: wrap;">
+    <div class="flow-box blue" style="text-align:center; padding: 0.75rem 1.25rem;">
+      🌐 Navegador<br><span style="font-size:10px; color: var(--text-dim)">HTML + CSS + JS</span>
+    </div>
+    <div class="flow-arrow" style="font-size:20px">→</div>
+    <div class="flow-box amber" style="text-align:center; padding: 0.75rem 1.25rem;">
+      ⚙️ Nginx<br><span style="font-size:10px; color: var(--text-dim)">Puerto 80/443</span>
+    </div>
+    <div class="flow-arrow" style="font-size:20px">→</div>
+    <div class="flow-box green" style="text-align:center; padding: 0.75rem 1.25rem;">
+      🐍 FastAPI<br><span style="font-size:10px; color: var(--text-dim)">Puerto 8000</span>
+    </div>
+    <div class="flow-arrow" style="font-size:20px">→</div>
+    <div class="flow-box" style="text-align:center; padding: 0.75rem 1.25rem; border-color: rgba(139,92,246,0.4); color: #C4B5FD; background: rgba(139,92,246,0.08)">
+      🗄️ MySQL<br><span style="font-size:10px; color: var(--text-dim)">Puerto 3306</span>
+    </div>
+  </div>
+
+  <div class="layer" style="border-color: #60A5FA">
+    <div class="layer-title">Capa 1 — Frontend (Navegador)</div>
+    <div class="layer-sub">Plantillas HTML renderizadas por Jinja2 en el servidor. El CSS usa el tema <code>incubant-theme.css</code>. El JS maneja la firma canvas, el envío del formulario vía fetch() y la gestión del token en localStorage. No hay framework SPA — Jinja2 es suficiente para un sistema interno.</div>
+    <div class="code" style="margin-top: 0.75rem">
+      <span class="comment"># Archivos principales del frontend</span><br>
+      templates/login.html<br>
+      templates/form.html            <span class="comment"># Formulario de inspección + canvas firma</span><br>
+      templates/lista_inspecciones.html<br>
+      templates/admin/dashboard.html<br>
+      static/incubant-theme.css
+    </div>
+  </div>
+
+  <div class="layer" style="border-color: var(--verde)">
+    <div class="layer-title">Capa 2 — Backend (FastAPI + Uvicorn)</div>
+    <div class="layer-sub">FastAPI recibe cada petición HTTP, valida autenticación, ejecuta la lógica de negocio y devuelve la respuesta. Uvicorn es el servidor ASGI que lo corre. Los routers dividen la lógica en módulos: auth, inspecciones, admin.</div>
+    <div class="code" style="margin-top: 0.75rem">
+      app/main.py                    <span class="comment"># Punto de entrada, registra routers</span><br>
+      app/security.py                <span class="comment"># Token, login, rate limiting</span><br>
+      app/routes_inspeccion.py       <span class="comment"># CRUD inspecciones + PDF</span><br>
+      app/routes_admin.py            <span class="comment"># Gestión usuarios + auditoría</span><br>
+      app/utils_pdf.py               <span class="comment"># WeasyPrint → PDF</span>
+    </div>
+  </div>
+
+  <div class="layer" style="border-color: #C4B5FD">
+    <div class="layer-title">Capa 3 — Datos (SQLAlchemy + MySQL)</div>
+    <div class="layer-sub">SQLAlchemy ORM traduce Python a SQL. Los modelos en <code>models.py</code> definen las 4 tablas. <code>database.py</code> gestiona la conexión y la inyección de sesiones con <code>get_db()</code>.</div>
+    <div class="code" style="margin-top: 0.75rem">
+      app/database.py                <span class="comment"># engine, SessionLocal, get_db()</span><br>
+      app/models.py                  <span class="comment"># Usuario, Inspeccion, Reporte, Log</span>
+    </div>
+  </div>
+
+  <div class="layer" style="border-color: var(--amber)">
+    <div class="layer-title">Capa 4 — Disco (archivos generados)</div>
+    <div class="layer-sub">Los PDFs y firmas se guardan en disco, no en la BD. Los binarios grandes en base de datos la hacen lenta. La BD solo guarda el nombre del archivo — la ruta real es predecible.</div>
+    <div class="code" style="margin-top: 0.75rem">
+      app/data/generated_pdfs/       <span class="comment"># PDFs de inspecciones individuales</span><br>
+      app/data/firmas/               <span class="comment"># PNGs de firmas digitales de conductores</span><br>
+      app/static/img/logo.png        <span class="comment"># Logo para el PDF (nombre en minúscula)</span>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <p style="font-weight:600; font-family:'Syne',sans-serif; margin-bottom:1rem">Protocolos en uso</p>
+  <table class="tbl">
+    <tr><th>Protocolo</th><th>Dónde</th><th>Para qué</th></tr>
+    <tr><td>HTTP/HTTPS</td><td>Nginx → FastAPI</td><td>Comunicación entre cliente y servidor</td></tr>
+    <tr><td>ASGI</td><td>Uvicorn</td><td>Protocolo async entre servidor web y Python</td></tr>
+    <tr><td>Cookie httpOnly</td><td>Browser → FastAPI</td><td>Token de sesión invisible para JS (anti-XSS)</td></tr>
+    <tr><td>Bearer Token</td><td>fetch() JS</td><td>Token en localStorage para peticiones AJAX</td></tr>
+    <tr><td>multipart/form-data</td><td>Formulario inspección</td><td>Envío del formulario con la imagen de firma</td></tr>
+    <tr><td>JSON</td><td>Respuestas API</td><td>Datos entre FastAPI y el JS del navegador</td></tr>
+    <tr><td>Content-Disposition</td><td>Descarga PDF</td><td>Header que hace que el navegador descargue el PDF</td></tr>
+  </table>
+</div>
+
+<!-- ===================== HERRAMIENTAS ===================== -->
+<div id="herramientas" class="section">
+  <p class="sec-title">Herramientas y stack</p>
+  <p class="sec-sub">Cada tecnología elegida por una razón específica</p>
+
+  <div class="card">
+    <div class="card-title">⚡ FastAPI <span class="badge badge-green">Backend</span></div>
+    <div class="card-body">
+      El cerebro del sistema. Recibe cada petición HTTP, valida los datos automáticamente con Pydantic, ejecuta la lógica y devuelve la respuesta. Tiene documentación automática en <code>/docs</code>.<br><br>
+      <strong style="color:var(--text)">¿Por qué no Django?</strong> — FastAPI es más rápido para APIs modernas, más ligero, y la validación automática de datos evita errores de tipo.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🖨️ WeasyPrint <span class="badge badge-amber">PDF</span></div>
+    <div class="card-body">
+      Convierte HTML+CSS a PDF en el servidor. Le das una plantilla Jinja2 con los datos del conductor y devuelve un PDF con logo, fuentes Futura y firma. La analogía exacta: <em>"Ctrl+P en Chrome, pero automático en el servidor."</em><br><br>
+      <strong style="color:var(--text)">¿Por qué no ReportLab?</strong> — WeasyPrint usa CSS normal. El diseñador puede editar la plantilla sin saber Python.
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="card-title">🗂️ SQLAlchemy <span class="badge badge-blue">ORM</span></div>
+      <div class="card-body">Permite hablar con MySQL escribiendo Python en vez de SQL. Los modelos en <code>models.py</code> definen las tablas y las relaciones. Las tablas se crean automáticamente al iniciar.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">🎨 Jinja2 <span class="badge badge-purple">Templates</span></div>
+      <div class="card-body">Motor de plantillas HTML. Toma archivos con variables como <code>{{ nombre_conductor }}</code> y los reemplaza con datos reales antes de enviarlos al navegador.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">🔒 Passlib + bcrypt <span class="badge badge-red">Auth</span></div>
+      <div class="card-body">Hashea los PINs de forma irreversible. "1234" se convierte en <code>$2b$12$eIW...</code>. Ni el desarrollador puede recuperar el PIN original.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">⚙️ python-dotenv <span class="badge badge-amber">Config</span></div>
+      <div class="card-body">Lee el archivo <code>.env</code> para las variables de configuración (contraseñas, host de BD). Las credenciales nunca están en el código fuente.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">🚀 Uvicorn + Gunicorn <span class="badge badge-green">Servidor</span></div>
+      <div class="card-body">Uvicorn es el servidor ASGI que corre FastAPI. En producción, Gunicorn gestiona múltiples workers de Uvicorn para manejar más tráfico.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">🌐 Nginx <span class="badge badge-blue">Proxy</span></div>
+      <div class="card-body">Proxy reverso que recibe el tráfico en el puerto 80/443 y lo pasa al puerto 8000 de Uvicorn. También sirve los archivos estáticos eficientemente.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== CARPETAS ===================== -->
+<div id="carpetas" class="section">
+  <p class="sec-title">Estructura de carpetas</p>
+  <p class="sec-sub">Árbol completo con notas sobre qué va en Git y qué no</p>
+
+  <div class="card" style="padding: 1.5rem">
+    <div class="tree">
+      <div class="tree-line"><span class="tree-dir">Misionales/</span></div>
+      <div class="tree-indent">
+        <div class="tree-line"><span class="tree-dir">app/</span> <span class="tree-note">núcleo de la aplicación</span></div>
+        <div class="tree-indent">
+          <div class="tree-line"><span class="tree-file">main.py</span> <span class="tree-note">punto de entrada FastAPI</span></div>
+          <div class="tree-line"><span class="tree-file">database.py</span> <span class="tree-note">conexión MySQL + sessions</span></div>
+          <div class="tree-line"><span class="tree-file">models.py</span> <span class="tree-note">tablas ORM</span></div>
+          <div class="tree-line"><span class="tree-file">security.py</span> <span class="tree-note">auth + rate limiting</span></div>
+          <div class="tree-line"><span class="tree-file">utils_pdf.py</span> <span class="tree-note">WeasyPrint → PDF</span></div>
+          <div class="tree-line"><span class="tree-file">routes_inspeccion.py</span></div>
+          <div class="tree-line"><span class="tree-file">routes_admin.py</span></div>
+          <div class="tree-line"><span class="tree-dir">templates/</span> <span class="tree-note">Jinja2 HTML</span></div>
+          <div class="tree-indent">
+            <div class="tree-line"><span class="tree-file">login.html</span></div>
+            <div class="tree-line"><span class="tree-file">form.html</span> <span class="tree-note">formulario inspección + canvas firma</span></div>
+            <div class="tree-line"><span class="tree-file">lista_inspecciones.html</span></div>
+            <div class="tree-line"><span class="tree-file">reporte.html</span> <span class="tree-note">plantilla PDF</span></div>
+            <div class="tree-line"><span class="tree-dir">admin/</span></div>
+            <div class="tree-indent">
+              <div class="tree-line"><span class="tree-file">dashboard.html</span></div>
+              <div class="tree-line"><span class="tree-file">usuarios.html</span></div>
+            </div>
+          </div>
+          <div class="tree-line"><span class="tree-dir">static/</span></div>
+          <div class="tree-indent">
+            <div class="tree-line"><span class="tree-file">incubant-theme.css</span></div>
+            <div class="tree-line"><span class="tree-dir">img/</span></div>
+            <div class="tree-indent">
+              <div class="tree-line"><span class="tree-file" style="color:#F59E0B">logo.png</span> <span class="tree-note">⚠️ nombre en minúscula — crítico para PDF</span></div>
+            </div>
+          </div>
+          <div class="tree-line"><span class="tree-dir" style="color:#EF4444">data/</span> <span class="tree-note">⛔ NO va en Git (.gitignore)</span></div>
+          <div class="tree-indent">
+            <div class="tree-line"><span class="tree-dir">generated_pdfs/</span> <span class="tree-note">PDFs individuales</span></div>
+            <div class="tree-line"><span class="tree-dir">firmas/</span> <span class="tree-note">PNGs de firmas</span></div>
+          </div>
+        </div>
+        <div class="tree-line"><span class="tree-dir">docs/</span> <span class="tree-note">documentación adicional</span></div>
+        <div class="tree-line"><span class="tree-dir" style="color:#EF4444">venv/</span> <span class="tree-note">⛔ NO va en Git</span></div>
+        <div class="tree-line"><span class="tree-file" style="color:#EF4444">.env</span> <span class="tree-note">⛔ NO va en Git — credenciales</span></div>
+        <div class="tree-line"><span class="tree-file">migration.sql</span> <span class="tree-note">✅ estructura BD para desplegar</span></div>
+        <div class="tree-line"><span class="tree-file">requirements.txt</span> <span class="tree-note">✅ dependencias Python</span></div>
+        <div class="tree-line"><span class="tree-file">.env.example</span> <span class="tree-note">✅ plantilla del .env</span></div>
+        <div class="tree-line"><span class="tree-file">.gitignore</span></div>
+        <div class="tree-line"><span class="tree-file">admin_cli.py</span> <span class="tree-note">crear primer admin desde consola</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="border-color: rgba(239,68,68,0.4); background: rgba(239,68,68,0.05)">
+    <div class="card-title">⚠️ Reglas críticas de archivos</div>
+    <div class="card-body">
+      <strong style="color:#FCA5A5">Logo en minúscula:</strong> el archivo debe llamarse exactamente <code>logo.png</code> — WeasyPrint en Linux es case-sensitive. Si se llama <code>Logo.png</code>, el PDF no incluirá el logo.<br><br>
+      <strong style="color:#FCA5A5">Nunca subir .env:</strong> contiene la contraseña de la base de datos. Usa <code>.env.example</code> como referencia en cada nuevo servidor.<br><br>
+      <strong style="color:#FCA5A5">Nunca subir venv/:</strong> el entorno virtual tiene binarios específicos del OS. Siempre recrearlo con <code>pip install -r requirements.txt</code>.
+    </div>
+  </div>
+</div>
+
+<!-- ===================== SEGURIDAD ===================== -->
+<div id="seguridad" class="section">
+  <p class="sec-title">Seguridad — 7 capas</p>
+  <p class="sec-sub">Cada capa protege contra un vector de ataque diferente</p>
+
+  <div class="sec-item">
+    <div class="sec-icon" style="background: rgba(239,68,68,0.15)">🔐</div>
+    <div class="sec-content">
+      <div class="sec-name">bcrypt — PINs irreversibles</div>
+      <div class="sec-desc">El PIN nunca se guarda en texto plano. bcrypt genera un hash de 60 caracteres con sal aleatoria. Ni el admin ni el desarrollador pueden recuperar el PIN original. Si el sistema es comprometido, los PINs siguen seguros.</div>
+    </div>
+  </div>
+
+  <div class="sec-item">
+    <div class="sec-icon" style="background: rgba(245,158,11,0.15)">⏱️</div>
+    <div class="sec-content">
+      <div class="sec-name">Rate limiting — 5 intentos / 5 minutos por IP</div>
+      <div class="sec-desc">Si una IP falla el login 5 veces en 5 minutos, queda bloqueada. Previene ataques de fuerza bruta donde alguien intenta adivinar el PIN probando combinaciones automáticamente.</div>
+    </div>
+  </div>
+
+  <div class="sec-item">
+    <div class="sec-icon" style="background: rgba(29,158,117,0.15)">🎫</div>
+    <div class="sec-content">
+      <div class="sec-name">Tokens con expiración de 24 horas</div>
+      <div class="sec-desc">El token se genera en el login y expira automáticamente. El logout no solo cierra la sesión en el navegador — invalida el token en la BD de verdad, por lo que no puede ser reutilizado.</div>
+    </div>
+  </div>
+
+  <div class="sec-item">
+    <div class="sec-icon" style="background: rgba(59,130,246,0.15)">🍪</div>
+    <div class="sec-content">
+      <div class="sec-name">Doble canal de autenticación</div>
+      <div class="sec-desc">El token se entrega por dos canales: (1) cookie httpOnly — el navegador la envía automáticamente, el JS no puede leerla (anti-XSS); (2) JSON → JS en localStorage para peticiones fetch(). La cookie sirve para acceder por URL directa, el localStorage para las llamadas AJAX.</div>
+    </div>
+  </div>
+
+  <div class="sec-item">
+    <div class="sec-icon" style="background: rgba(139,92,246,0.15)">👤</div>
+    <div class="sec-content">
+      <div class="sec-name">Separación estricta de roles</div>
+      <div class="sec-desc">Un conductor solo puede ver sus propias inspecciones — la consulta SQL filtra por <code>usuario_id</code>. El rol <code>admin</code> ve todo. No hay forma de escalar privilegios desde la interfaz.</div>
+    </div>
+  </div>
+
+  <div class="sec-item">
+    <div class="sec-icon" style="background: rgba(239,68,68,0.15)">🚫</div>
+    <div class="sec-content">
+      <div class="sec-name">Handler global 401/403</div>
+      <div class="sec-desc">Si alguien intenta acceder a una URL protegida sin token o con token inválido, el sistema redirecciona automáticamente al login. No hay páginas expuestas accidentalmente.</div>
+    </div>
+  </div>
+
+  <div class="sec-item">
+    <div class="sec-icon" style="background: rgba(245,158,11,0.15)">🔕</div>
+    <div class="sec-content">
+      <div class="sec-name">Registro deshabilitado</div>
+      <div class="sec-desc">No existe un formulario público de registro. Los usuarios solo pueden ser creados por el administrador. Esto impide que personas no autorizadas creen cuentas en el sistema.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <div class="code">
+    <span class="comment"># Flujo de autenticación completo</span><br>
+    <span class="key">1.</span> <span class="val">POST /auth/login</span> <span class="comment">→ recibe usuario + PIN</span><br>
+    <span class="key">2.</span> Rate limiting check <span class="comment">→ ¿5 fallos de esta IP en 5 min? → bloqueo</span><br>
+    <span class="key">3.</span> bcrypt.verify(PIN, pin_hash) <span class="comment">→ ¿coincide?</span><br>
+    <span class="key">4.</span> Genera token aleatorio <span class="comment">→ se guarda en BD con expiración</span><br>
+    <span class="key">5.</span> Respuesta: <span class="val">cookie httpOnly</span> + <span class="val">JSON token</span><br>
+    <span class="key">6.</span> Cada petición: get_current_user() <span class="comment">→ lee token → BD → ¿expiró? ¿activo=1?</span>
+  </div>
+</div>
+
+<!-- ===================== ALCANCE ===================== -->
+<div id="alcance" class="section">
+  <p class="sec-title">Alcance actual y mejoras futuras</p>
+  <p class="sec-sub">Lo que hace hoy, lo que no hace aún, y el roadmap por prioridad</p>
+
+  <p style="font-weight:600;font-family:'Syne',sans-serif;margin-bottom:1rem">¿Qué hace Misionales hoy?</p>
+  <div class="grid2">
+    <div class="card" style="border-color: rgba(29,158,117,0.4)">
+      <div class="card-body">
+        ✅ Inspección preoperacional digital con firma<br>
+        ✅ Generación de PDF automático con WeasyPrint<br>
+        ✅ Panel conductor — historial personal<br>
+        ✅ Panel admin — gestión de usuarios<br>
+        ✅ Auditoría de acciones administrativas<br>
+        ✅ Consolidado de 15 inspecciones<br>
+        ✅ Autenticación con rate limiting y bcrypt<br>
+        ✅ Despliegue en VPS con systemd + Nginx
+      </div>
+    </div>
+    <div class="card" style="border-color: rgba(239,68,68,0.3)">
+      <div class="card-body">
+        ❌ Sin notificaciones (email / WhatsApp)<br>
+        ❌ Sin exportación a Excel<br>
+        ❌ Sin app móvil nativa<br>
+        ❌ Sin soporte multi-empresa<br>
+        ❌ Sin dashboard con gráficas en tiempo real<br>
+        ❌ Sin módulo de mantenimiento de vehículos<br>
+        ❌ Sin alertas automáticas para SST<br>
+        ❌ Sin API pública para integraciones
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <p style="font-weight:600;font-family:'Syne',sans-serif;margin-bottom:1rem">Roadmap por prioridad</p>
+
+  <div class="roadmap-item p1">
+    <div>
+      <div class="roadmap-label" style="color:#EF4444">PRIORIDAD ALTA</div>
+      <div class="roadmap-title">Notificaciones automáticas a SST</div>
+      <div class="roadmap-desc">Cuando un ítem queda en estado "Malo", enviar alerta por correo o WhatsApp Business al área SST automáticamente.</div>
+    </div>
+  </div>
+
+  <div class="roadmap-item p1">
+    <div>
+      <div class="roadmap-label" style="color:#EF4444">PRIORIDAD ALTA</div>
+      <div class="roadmap-title">Exportación a Excel</div>
+      <div class="roadmap-desc">El admin puede descargar un Excel con todas las inspecciones de un rango de fechas para análisis en otras herramientas.</div>
+    </div>
+  </div>
+
+  <div class="roadmap-item p2">
+    <div>
+      <div class="roadmap-label" style="color:#F59E0B">PRIORIDAD MEDIA</div>
+      <div class="roadmap-title">PWA — acceso desde celular sin instalar</div>
+      <div class="roadmap-desc">Convertir el sistema en una Progressive Web App para que los conductores puedan "instalarlo" en su celular como si fuera una app nativa.</div>
+    </div>
+  </div>
+
+  <div class="roadmap-item p2">
+    <div>
+      <div class="roadmap-label" style="color:#F59E0B">PRIORIDAD MEDIA</div>
+      <div class="roadmap-title">Dashboard con gráficas de novedades</div>
+      <div class="roadmap-desc">Panel visual para SST mostrando tendencias de fallas por vehículo, conductor y tipo de ítem — para tomar decisiones de mantenimiento preventivo.</div>
+    </div>
+  </div>
+
+  <div class="roadmap-item p3">
+    <div>
+      <div class="roadmap-label" style="color:#3B82F6">PRIORIDAD BAJA</div>
+      <div class="roadmap-title">Multi-empresa</div>
+      <div class="roadmap-desc">Agregar el concepto de "empresa" para que el mismo VPS sirva múltiples organizaciones con datos completamente separados.</div>
+    </div>
+  </div>
+
+  <div class="roadmap-item p3">
+    <div>
+      <div class="roadmap-label" style="color:#3B82F6">PRIORIDAD BAJA</div>
+      <div class="roadmap-title">Módulo mantenimiento de vehículos</div>
+      <div class="roadmap-desc">Integrar el ciclo de mantenimiento: cuando un vehículo acumula N inspecciones con "Regular" en frenos, generar una orden de mantenimiento automáticamente.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== DEPLOY ===================== -->
+<div id="deploy" class="section">
+  <p class="sec-title">Guía de despliegue — Hostinger VPS</p>
+  <p class="sec-sub">12 fases desde cero hasta el sistema en producción</p>
+
+  <div class="deploy-phase">
+    <div class="deploy-phase-header">
+      <span class="phase-num">FASE 1</span>
+      <span class="phase-title">Conectarse al VPS por SSH</span>
+    </div>
+    <div class="code">ssh root@<span class="val">IP_DE_TU_VPS</span></div>
+    <div class="card-body">La IP y contraseña están en <strong>hPanel → VPS → Administrar</strong></div>
+  </div>
+
+  <div class="deploy-phase">
+    <div class="deploy-phase-header">
+      <span class="phase-num">FASE 2</span>
+      <span class="phase-title">Actualizar servidor e instalar dependencias</span>
+    </div>
+    <div class="code">
+apt update && apt upgrade -y<br><br>
+apt install -y python3.11 python3.11-venv python3-pip \<br>
+&nbsp;&nbsp;mysql-server nginx git curl \<br>
+&nbsp;&nbsp;<span class="str">libcairo2 libpango-1.0-0 libpangocairo-1.0-0</span> \<br>
+&nbsp;&nbsp;<span class="str">libgdk-pixbuf2.0-0 libffi-dev shared-mime-info libharfbuzz0b</span>
+    </div>
+    <div class="card-body" style="color: var(--amber)">⚠️ Las librerías libcairo2 y libpango son obligatorias para WeasyPrint. Sin ellas los PDFs no se generan.</div>
+  </div>
+
+  <div class="deploy-phase">
+    <div class="deploy-phase-header">
+      <span class="phase-num">FASE 3</span>
+      <span class="phase-title">Configurar MySQL</span>
+    </div>
+    <div class="code">
+mysql_secure_installation<br>
+<span class="comment"># Responde: Y Y Y Y Y — ponle contraseña al root</span><br><br>
+mysql -u root -p<br><br>
+<span class="key">CREATE DATABASE</span> misionales <span class="key">CHARACTER SET</span> utf8mb4;<br>
+<span class="key">CREATE USER</span> <span class="str">'misionales_user'</span>@<span class="str">'localhost'</span> <span class="key">IDENTIFIED BY</span> <span class="str">'Password123!'</span>;<br>
+<span class="key">GRANT ALL PRIVILEGES ON</span> misionales.* <span class="key">TO</span> <span class="str">'misionales_user'</span>@<span class="str">'localhost'</span>;<br>
+<span class="key">FLUSH PRIVILEGES</span>; EXIT;
+    </div>
+  </div>
+
+  <div class="deploy-phase">
+    <div class="deploy-phase-header">
+      <span class="phase-num">FASE 4</span>
+      <span class="phase-title">Clonar el repositorio</span>
+    </div>
+    <div class="code">
+cd /home<br>
+git clone <span class="val">https://github.com/Sant-Beco/Misionales.git</span> misionales<br>
+cd misionales
+    </div>
+  </div>
+
+  <div class="deploy-phase">
+    <div class="deploy-phase-header">
+      <span class="phase-num">FASE 5</span>
+      <span class="phase-title">Entorno virtual + dependencias</span>
+    </div>
+    <div class="code">
+python3.11 -m venv venv<br>
+source venv/bin/activate<br>
+pip install --upgrade pip<br>
+pip install -r requirements.txt<br>
+pip install gunicorn
+    </div>
+  </div>
+
+  <div class="deploy-phase">
+    <div class="deploy-phase-header">
+      <span class="phase-num">FASE 6</span>
+      <span class="phase-title">Crear el archivo .env</span>
+    </div>
+    <div class="code">
+nano .env<br><br>
+<span class="comment"># Contenido del archivo:</span><br>
+<span class="key">DB_HOST</span>=<span class="val">127.0.0.1</span><br>
+<span class="key">DB_PORT</span>=<span class="val">3306</span><br>
+<span class="key">DB_NAME</span>=<span class="val">misionales</span><br>
+<span class="key">DB_USER</span>=<span class="val">misionales_user</span><br>
+<span class="key">DB_PASSWORD</span>=<span class="val">Password123!</span><br>
+<span class="key">SECRET_KEY</span>=<span class="val">clave_larga_y_aleatoria_aqui</span><br>
+<span class="key">ENVIRONMENT</span>=<span class="val">production</span><br><br>
+<span class="comment"># Guardar: Ctrl+O → Enter → Ctrl+X</span>
+    </div>
+  </div>
+
+  <div class="deploy-phase">
+    <div class="deploy-phase-header">
+      <span class="phase-num">FASE 7</span>
+      <span class="phase-title">Migración de base de datos</span>
+    </div>
+    <div class="code">mysql -u misionales_user -p misionales &lt; migration.sql</div>
+  </div>
+
+  <div class="deploy-phase">
+    <div class="deploy-phase-header">
+      <span class="phase-num">FASE 8</span>
+      <span class="phase-title">Prueba manual — verificar que funciona</span>
+    </div>
+    <div class="code">
+source venv/bin/activate<br>
+uvicorn app.main:app --host 0.0.0.0 --port 8000
+    </div>
+    <div class="card-body">Abre en el navegador: <code style="color:var(--verde)">http://IP_DE_TU_VPS:8000</code><br>Si ves el login ✅ — detén con Ctrl+C y continúa.</div>
+  </div>
+
+  <div class="deploy-phase">
+    <div class="deploy-phase-header">
+      <span class="phase-num">FASE 9</span>
+      <span class="phase-title">Configurar systemd (servicio permanente)</span>
+    </div>
+    <div class="code">
+nano /etc/systemd/system/misionales.service<br><br>
+[Unit]<br>
+Description=Misionales FastAPI<br>
+After=network.target mysql.service<br><br>
+[Service]<br>
+User=root<br>
+WorkingDirectory=/home/misionales<br>
+ExecStart=/home/misionales/venv/bin/gunicorn app.main:app \<br>
+&nbsp;&nbsp;-w 2 -k uvicorn.workers.UvicornWorker \<br>
+&nbsp;&nbsp;--bind 127.0.0.1:8000 --timeout 120<br>
+Restart=always<br>
+EnvironmentFile=/home/misionales/.env<br><br>
+[Install]<br>
+WantedBy=multi-user.target
+    </div>
+    <div class="code">
+systemctl daemon-reload<br>
+systemctl enable misionales<br>
+systemctl start misionales<br>
+systemctl status misionales   <span class="comment"># debe mostrar "active (running)"</span>
+    </div>
+  </div>
+
+  <div class="deploy-phase">
+    <div class="deploy-phase-header">
+      <span class="phase-num">FASE 10</span>
+      <span class="phase-title">Configurar Nginx (proxy reverso)</span>
+    </div>
+    <div class="code">
+nano /etc/nginx/sites-available/misionales<br><br>
+server {<br>
+&nbsp;&nbsp;listen 80;<br>
+&nbsp;&nbsp;server_name <span class="val">IP_DE_TU_VPS</span>;<br>
+&nbsp;&nbsp;client_max_body_size 20M;<br><br>
+&nbsp;&nbsp;location / {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;proxy_pass http://127.0.0.1:8000;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;proxy_set_header Host $host;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;proxy_read_timeout 120s;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;location /static {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;alias /home/misionales/app/static;<br>
+&nbsp;&nbsp;}<br>
+}
+    </div>
+    <div class="code">
+ln -s /etc/nginx/sites-available/misionales /etc/nginx/sites-enabled/<br>
+rm /etc/nginx/sites-enabled/default<br>
+nginx -t          <span class="comment"># debe decir "syntax is ok"</span><br>
+systemctl restart nginx
+    </div>
+  </div>
+
+  <div class="deploy-phase">
+    <div class="deploy-phase-header">
+      <span class="phase-num">FASE 11</span>
+      <span class="phase-title">Crear primer administrador</span>
+    </div>
+    <div class="code">
+cd /home/misionales<br>
+source venv/bin/activate<br>
+python admin_cli.py<br>
+<span class="comment"># Sigue las instrucciones para crear el usuario admin</span>
+    </div>
+  </div>
+
+  <div class="deploy-phase">
+    <div class="deploy-phase-header">
+      <span class="phase-num">FASE 12</span>
+      <span class="phase-title">Verificación final y comandos del día a día</span>
+    </div>
+    <div class="code">
+<span class="comment"># Verificar que todo funciona</span><br>
+systemctl status misionales   <span class="comment"># debe decir active (running)</span><br>
+systemctl status nginx<br>
+journalctl -u misionales -f   <span class="comment"># logs en tiempo real</span><br><br>
+<span class="comment"># Actualizar código desde GitHub</span><br>
+cd /home/misionales && git pull origin main<br>
+systemctl restart misionales<br><br>
+<span class="comment"># Reiniciar si hay problema</span><br>
+systemctl restart misionales
+    </div>
+  </div>
+
+  <hr class="divider">
+  <p style="font-weight:600;font-family:'Syne',sans-serif;margin-bottom:1rem">Errores más comunes</p>
+  <table class="tbl">
+    <tr><th>Error</th><th>Causa</th><th>Solución</th></tr>
+    <tr><td>502 Bad Gateway</td><td>Servicio no inició</td><td><code>journalctl -u misionales -f</code> para ver el error</td></tr>
+    <tr><td>Variables incompletas</td><td>.env mal configurado</td><td><code>cat .env</code> y revisar todos los valores</td></tr>
+    <tr><td>PDF sin logo</td><td>Nombre logo.png en mayúscula</td><td>Renombrar a <code>logo.png</code> en minúscula</td></tr>
+    <tr><td>PDF no genera</td><td>Faltan librerías Cairo</td><td><code>apt install -y libcairo2 libpangocairo-1.0-0</code></td></tr>
+    <tr><td>403 en /static</td><td>Permisos de carpeta</td><td><code>chmod -R 755 /home/misionales/app/static</code></td></tr>
+  </table>
+</div>
+
+<script>
+function show(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
