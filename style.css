@@ -162,17 +162,17 @@ body {
       2px 2px 4px rgba(0, 0, 0, 1),
       -2px -2px 4px rgba(0, 0, 0, 1);
     /* Stroke sutil para definición */
-    -webkit-text-stroke: 0.5px rgba(0, 173, 181, 0.3);
+    -webkit-text-stroke: 0.5px rgba(255, 107, 53, 0.3);
   }
   
   .title-highlight {
     /* Mantener gradient en "SOLUCIONES" */
-    background: linear-gradient(135deg, #00adb5, #00d4dd);
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-tertiary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     /* Sombra extra para el highlight */
-    filter: drop-shadow(0 0 10px rgba(0, 173, 181, 0.8))
+    filter: drop-shadow(0 0 10px rgba(255, 107, 53, 0.8))
             drop-shadow(2px 2px 4px rgba(0, 0, 0, 1));
   }
 }
@@ -223,8 +223,8 @@ body {
   height: 2px;
   background: linear-gradient(to right,
     transparent,
-    #ff6b6b 20%,
-    #4ecdc4 50%,
+    var(--accent-tertiary) 20%,
+    var(--accent-secondary) 50%,
     var(--accent) 80%,
     transparent
   );
@@ -1426,7 +1426,7 @@ body {
 
 /* Stat highlight */
 .stat-highlight {
-  background: linear-gradient(135deg, var(--accent), #007c82);
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
   color: white;
   font-weight: 600;
 }
@@ -1447,26 +1447,13 @@ body {
   gap: 6px;
 }
 
-/* Botón secundario en overlay */
-.btn-secondary {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+/* Variante horizontal para capturas anchas tipo escritorio (ej. Inspección de Vehículos) */
+.proyecto-img-horizontal {
+  height: 165px;
 }
 
-.btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-/* Aspect ratio consistente */
-.proyecto-img {
-  aspect-ratio: 16/9;
-  min-height: 200px;
-}
-
-.proyecto-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.proyecto-img-horizontal img {
+  object-position: top;
 }
 
 /* Efecto glow en hover */
@@ -1535,6 +1522,10 @@ body {
   .gallery-thumbnails {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .proyecto-img-horizontal {
+    height: 190px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -1545,6 +1536,10 @@ body {
   /* Galería adaptada a mobile */
   .gallery-main {
     height: 200px;
+  }
+
+  .proyecto-img-horizontal {
+    height: 170px;
   }
   
   .gallery-thumbnails {

@@ -97,9 +97,9 @@ function createThreadWeaving() {
   canvas.height = 60;
   
   const threads = [
-    { x: 0, y: 20, color: '#ff6b6b', speed: 2 },
-    { x: 0, y: 30, color: '#4ecdc4', speed: 1.5 },
-    { x: 0, y: 40, color: '#00adb5', speed: 2.5 }
+    { x: 0, y: 20, color: '#ffd93d', speed: 2 },
+    { x: 0, y: 30, color: '#f7931e', speed: 1.5 },
+    { x: 0, y: 40, color: '#ff6b35', speed: 2.5 }
   ];
   
   const targetText = 'SANTIAGO';
