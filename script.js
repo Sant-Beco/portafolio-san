@@ -1,24 +1,23 @@
 // ==================== ANIMACIONES ARTESANALES ====================
 
-// ========== 1. CÓDIGO BINARIO CAYENDO (Matrix Style) ==========
+// ========== 1. CÓDIGO BINARIO CAYENDO ==========
 function createBinaryRain() {
   const binaryContainer = document.querySelector('.binary-rain');
   if (!binaryContainer) return;
 
-  const message = "Sanweb artesano de código mejorando cada día";
-  const binaryMessage = message.split('').map(char => 
+  const message = "Santiago Bedoya artesano de código backend python django fastapi";
+  const binaryMessage = message.split('').map(char =>
     char.charCodeAt(0).toString(2).padStart(8, '0')
   ).join(' ');
 
   const columns = Math.floor(binaryContainer.offsetWidth / 20);
-  
+
   for (let i = 0; i < columns; i++) {
     const column = document.createElement('div');
     column.className = 'binary-column';
     column.style.left = `${i * 20}px`;
     column.style.animationDelay = `${Math.random() * 5}s`;
     column.style.animationDuration = `${10 + Math.random() * 10}s`;
-    
     const digits = Math.floor(Math.random() * 20) + 10;
     for (let j = 0; j < digits; j++) {
       const digit = document.createElement('span');
@@ -26,23 +25,19 @@ function createBinaryRain() {
       digit.style.opacity = Math.random();
       column.appendChild(digit);
     }
-    
     binaryContainer.appendChild(column);
   }
 
-  // Mostrar mensaje oculto ocasionalmente
   setInterval(() => {
     const randomColumn = binaryContainer.children[Math.floor(Math.random() * columns)];
     if (randomColumn) {
       randomColumn.innerHTML = '';
-      const words = binaryMessage.split(' ');
-      words.forEach(binary => {
+      binaryMessage.split(' ').forEach(binary => {
         const span = document.createElement('span');
         span.textContent = binary;
         span.className = 'binary-highlight';
         randomColumn.appendChild(span);
       });
-      
       setTimeout(() => {
         randomColumn.innerHTML = '';
         const digits = Math.floor(Math.random() * 20) + 10;
@@ -57,230 +52,169 @@ function createBinaryRain() {
   }, 8000);
 }
 
-// ========== 2. ASCII ART ANIMADO - CORREGIDO ==========
+// ========== 2. ASCII ART ANIMADO ==========
 function animateASCIITitle() {
   const titles = document.querySelectorAll('.ascii-animated');
-  
   titles.forEach(title => {
     const text = title.getAttribute('data-text') || title.textContent;
-    
-    // Aplicar fuente monospace temporalmente
     title.style.fontFamily = '"Courier New", monospace';
-    
     const asciiSteps = [
       text.split('').map(() => String.fromCharCode(33 + Math.floor(Math.random() * 94))).join(''),
-      text.split('').map((char, i) => Math.random() > 0.5 ? char : String.fromCharCode(33 + Math.floor(Math.random() * 94))).join(''),
+      text.split('').map(char => Math.random() > 0.5 ? char : String.fromCharCode(33 + Math.floor(Math.random() * 94))).join(''),
       text
     ];
-    
     let step = 0;
     const interval = setInterval(() => {
       if (step < asciiSteps.length) {
-        title.textContent = asciiSteps[step];
-        step++;
+        title.textContent = asciiSteps[step++];
       } else {
         clearInterval(interval);
-        // Restaurar fuente original
         title.style.fontFamily = '';
       }
     }, 100);
   });
 }
 
-// ========== 3. HILOS TEJIENDO NOMBRE ==========
+// ========== 3. HILOS TEJIENDO NOMBRE (colores Forge Master) ==========
 function createThreadWeaving() {
   const canvas = document.getElementById('thread-canvas');
   if (!canvas) return;
-  
   const ctx = canvas.getContext('2d');
   canvas.width = 200;
   canvas.height = 60;
-  
+
+  // Paleta naranja-dorado Forge Master
   const threads = [
-    { x: 0, y: 20, color: '#ffd93d', speed: 2 },
+    { x: 0, y: 20, color: '#ff6b35', speed: 2   },
     { x: 0, y: 30, color: '#f7931e', speed: 1.5 },
-    { x: 0, y: 40, color: '#ff6b35', speed: 2.5 }
+    { x: 0, y: 40, color: '#ffd93d', speed: 2.5 }
   ];
-  
   const targetText = 'SANTIAGO';
   let progress = 0;
-  
+
   function drawThread() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
     threads.forEach((thread, index) => {
       ctx.strokeStyle = thread.color;
       ctx.lineWidth = 2;
       ctx.lineCap = 'round';
-      
       ctx.beginPath();
       ctx.moveTo(0, thread.y);
-      
       for (let x = 0; x <= thread.x; x += 2) {
-        const y = thread.y + Math.sin(x * 0.1 + index) * 5;
-        ctx.lineTo(x, y);
+        ctx.lineTo(x, thread.y + Math.sin(x * 0.1 + index) * 5);
       }
       ctx.stroke();
-      
-      if (thread.x < canvas.width) {
-        thread.x += thread.speed;
-      }
+      if (thread.x < canvas.width) thread.x += thread.speed;
     });
-    
+
     ctx.font = 'bold 24px Montserrat';
-    ctx.fillStyle = 'rgba(0, 173, 181, 0.8)';
+    ctx.fillStyle = 'rgba(255, 107, 53, 0.9)';
     const textWidth = ctx.measureText(targetText).width;
     const revealWidth = (progress / 100) * textWidth;
-    
     ctx.save();
     ctx.beginPath();
     ctx.rect(10, 15, revealWidth, 30);
     ctx.clip();
     ctx.fillText(targetText, 10, 40);
     ctx.restore();
-    
-    progress += 0.5;
-    if (progress > 100) progress = 100;
-    
+
+    progress = Math.min(100, progress + 0.5);
     requestAnimationFrame(drawThread);
   }
-  
   drawThread();
 }
 
-// ========== 4. PARTÍCULAS FORMANDO TÍTULO PRINCIPAL ==========
+// ========== 4. PARTÍCULAS FORMANDO TÍTULO (tonos naranja-dorado) ==========
 function createParticleTitle() {
   const canvas = document.getElementById('particle-canvas');
   if (!canvas) return;
-  
   const ctx = canvas.getContext('2d');
   const container = canvas.parentElement;
-  
-  // Ajustar tamaño al contenedor
+  let particles = [];
+
   function resizeCanvas() {
-    canvas.width = container.offsetWidth;
+    canvas.width  = container.offsetWidth;
     canvas.height = container.offsetHeight;
     initParticles();
   }
-  
-  let particles = [];
-  
+
   function initParticles() {
     particles = [];
-    
-    // Crear el texto en el canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-    // Configurar texto responsive
-    const isMobile = window.innerWidth <= 768;
+
+    const isMobile      = window.innerWidth <= 768;
     const isSmallMobile = window.innerWidth <= 480;
-    
     let fontSize;
-    if (isSmallMobile) {
-      fontSize = Math.min(canvas.width / 6, 28);
-    } else if (isMobile) {
-      fontSize = Math.min(canvas.width / 6.5, 35);
-    } else {
-      fontSize = Math.min(canvas.width / 8, 80);
-    }
-    
-    ctx.font = `bold ${fontSize}px Bebas Neue`;
-    ctx.fillStyle = '#ff6b35';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    
-    // Dibujar las 3 líneas
-    const lines = ['CONSTRUYENDO', 'SOLUCIONES', 'CON CÓDIGO'];
+    if      (isSmallMobile) fontSize = Math.min(canvas.width / 6,   28);
+    else if (isMobile)      fontSize = Math.min(canvas.width / 6.5, 35);
+    else                    fontSize = Math.min(canvas.width / 8,   80);
+
+    ctx.font          = `bold ${fontSize}px Bebas Neue`;
+    ctx.fillStyle     = '#ff6b35';   // color base naranja
+    ctx.textAlign     = 'center';
+    ctx.textBaseline  = 'middle';
+
+    const lines      = ['CONSTRUYENDO', 'SOLUCIONES', 'CON CÓDIGO'];
     const lineHeight = fontSize * 1.15;
-    const startY = (canvas.height - lineHeight * 2) / 2;
-    
-    lines.forEach((line, index) => {
-      ctx.fillText(line, canvas.width / 2, startY + index * lineHeight);
-    });
-    
-    // Obtener píxeles del texto
+    const startY     = (canvas.height - lineHeight * 2) / 2;
+    lines.forEach((line, i) => ctx.fillText(line, canvas.width / 2, startY + i * lineHeight));
+
     const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-    // Crear partículas - MÁS DENSAS Y BRILLANTES EN MOBILE
-    const sampling = isMobile ? 3 : 3; // Mismo sampling para mobile
-    const particleSize = isSmallMobile ? 1.0 : (isMobile ? 1.2 : 1); // Más grandes en mobile
-    
+
+    const sampling     = 3;
+    const particleSize = isSmallMobile ? 1.0 : (isMobile ? 1.2 : 1);
+
     for (let y = 0; y < imageData.height; y += sampling) {
       for (let x = 0; x < imageData.width; x += sampling) {
-        const index = (y * imageData.width + x) * 4;
-        const alpha = imageData.data[index + 3];
-        
+        const alpha = imageData.data[(y * imageData.width + x) * 4 + 3];
         if (alpha > 128) {
-          // Colores más brillantes en mobile
-          const hue = 15 + Math.random() * 20;
-          const saturation = isMobile ? 80 : 70; // Más saturación en mobile
-          const lightness = isMobile ? 60 : 50 + Math.random() * 10; // Más brillo en mobile
-          
+          // Rango de hue naranja-dorado: 15-45
+          const hue        = 15  + Math.random() * 30;
+          const saturation = isMobile ? 90 : 80;
+          const lightness  = isMobile ? 60 : 50 + Math.random() * 15;
           particles.push({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
-            targetX: x,
-            targetY: y,
-            size: (Math.random() * 1.5 + 0.8) * particleSize,
-            color: `hsl(${hue}, ${saturation}%, ${lightness}%)`,
-            speedX: (Math.random() - 0.5) * 2,
-            speedY: (Math.random() - 0.5) * 2
+            targetX: x, targetY: y,
+            size:  (Math.random() * 1.5 + 0.8) * particleSize,
+            color: `hsl(${hue}, ${saturation}%, ${lightness}%)`
           });
         }
       }
     }
   }
-  
+
   function animateParticles() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-    particles.forEach(particle => {
-      // Movimiento hacia el objetivo
-      const dx = particle.targetX - particle.x;
-      const dy = particle.targetY - particle.y;
-      
-      particle.x += dx * 0.05;
-      particle.y += dy * 0.05;
-      
-      // Dibujar partícula
-      ctx.fillStyle = particle.color;
+    const isMobile      = window.innerWidth <= 768;
+    const glowMultiplier = isMobile ? 4 : 3;
+
+    particles.forEach(p => {
+      p.x += (p.targetX - p.x) * 0.05;
+      p.y += (p.targetY - p.y) * 0.05;
+
+      // Punto
+      ctx.fillStyle = p.color;
       ctx.beginPath();
-      ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
       ctx.fill();
-      
-      // Glow effect - MÁS INTENSO EN MOBILE
-      const isMobile = window.innerWidth <= 768;
-      const glowMultiplier = isMobile ? 4 : 3; // Más glow en mobile
-      
-      const gradient = ctx.createRadialGradient(
-        particle.x, particle.y, 0,
-        particle.x, particle.y, particle.size * glowMultiplier
-      );
-      
-      // Colores más brillantes en mobile
-      if (isMobile) {
-        gradient.addColorStop(0, particle.color);
-        gradient.addColorStop(0.3, particle.color.replace('60%', '50%'));
-        gradient.addColorStop(1, 'transparent');
-      } else {
-        gradient.addColorStop(0, particle.color);
-        gradient.addColorStop(1, 'transparent');
-      }
-      
-      ctx.fillStyle = gradient;
+
+      // Glow
+      const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size * glowMultiplier);
+      g.addColorStop(0, p.color);
+      g.addColorStop(1, 'transparent');
+      ctx.fillStyle = g;
       ctx.beginPath();
-      ctx.arc(particle.x, particle.y, particle.size * glowMultiplier, 0, Math.PI * 2);
+      ctx.arc(p.x, p.y, p.size * glowMultiplier, 0, Math.PI * 2);
       ctx.fill();
     });
-    
     requestAnimationFrame(animateParticles);
   }
-  
+
   resizeCanvas();
   animateParticles();
-  
-  // Redimensionar cuando cambia el tamaño
+
   let resizeTimeout;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimeout);
@@ -290,16 +224,13 @@ function createParticleTitle() {
 
 // ========== 5. TELAR DE CÓDIGO ==========
 function createCodeLoom() {
-  const headings = document.querySelectorAll('.loom-title');
-  
-  headings.forEach(heading => {
+  document.querySelectorAll('.loom-title').forEach(heading => {
     const text = heading.getAttribute('data-text') || heading.textContent.trim();
     heading.innerHTML = '';
     heading.classList.add('loom-container');
-    
+
     const loom = document.createElement('div');
     loom.className = 'loom-threads';
-    
     for (let i = 0; i < text.length * 3; i++) {
       const thread = document.createElement('div');
       thread.className = 'vertical-thread';
@@ -307,12 +238,10 @@ function createCodeLoom() {
       thread.style.animationDelay = `${i * 0.1}s`;
       loom.appendChild(thread);
     }
-    
     heading.appendChild(loom);
-    
+
     const textContainer = document.createElement('div');
     textContainer.className = 'loom-text';
-    
     text.split('').forEach((char, index) => {
       const charSpan = document.createElement('span');
       charSpan.className = 'woven-char';
@@ -320,30 +249,26 @@ function createCodeLoom() {
       charSpan.style.animationDelay = `${index * 0.1}s`;
       textContainer.appendChild(charSpan);
     });
-    
     heading.appendChild(textContainer);
-    
-    const horizontalThreads = document.createElement('div');
-    horizontalThreads.className = 'horizontal-threads';
-    
+
+    const hThreads = document.createElement('div');
+    hThreads.className = 'horizontal-threads';
     for (let i = 0; i < 3; i++) {
-      const thread = document.createElement('div');
-      thread.className = 'horizontal-thread';
-      thread.style.animationDelay = `${i * 0.5}s`;
-      horizontalThreads.appendChild(thread);
+      const t = document.createElement('div');
+      t.className = 'horizontal-thread';
+      t.style.animationDelay = `${i * 0.5}s`;
+      hThreads.appendChild(t);
     }
-    
-    heading.appendChild(horizontalThreads);
+    heading.appendChild(hThreads);
   });
 }
 
 // ========== 6. PROYECTOS: FILTROS + ENTRADA ANIMADA ==========
 function initProyectos() {
-  const btns = document.querySelectorAll('.pf-btn');
+  const btns  = document.querySelectorAll('.pf-btn');
   const cards = document.querySelectorAll('.proyecto-card');
-  const grid = document.getElementById('proyectos-grid');
+  const grid  = document.getElementById('proyectos-grid');
 
-  // Filtros
   btns.forEach(btn => {
     btn.addEventListener('click', () => {
       btns.forEach(b => b.classList.remove('active'));
@@ -355,10 +280,7 @@ function initProyectos() {
         const match = f === 'all' || card.dataset.cat === f;
         card.style.display = match ? '' : 'none';
         card.classList.remove('proyecto-featured');
-        if (match && firstVisible) {
-          card.classList.add('proyecto-featured');
-          firstVisible = false;
-        }
+        if (match && firstVisible) { card.classList.add('proyecto-featured'); firstVisible = false; }
       });
 
       grid.style.gridTemplateColumns = f === 'all'
@@ -367,18 +289,14 @@ function initProyectos() {
     });
   });
 
-  // Entrada escalonada con IntersectionObserver
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add('visible');
-        }, i * 100);
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
         observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.1 });
-
   cards.forEach(card => observer.observe(card));
 }
 
@@ -386,134 +304,86 @@ function initProyectos() {
 function initFloatingCTA() {
   const cta = document.querySelector('.floating-cta');
   if (!cta) return;
-  
-  let lastScroll = 0;
-  const showAt = 500; // Mostrar después de 500px de scroll
-  
   window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > showAt) {
-      cta.classList.add('visible');
-    } else {
-      cta.classList.remove('visible');
-    }
-    
-    lastScroll = currentScroll;
+    cta.classList.toggle('visible', window.pageYOffset > 500);
   });
-  
-  // Click handler
-  const btn = cta.querySelector('.floating-cta-btn');
-  btn?.addEventListener('click', () => {
+  cta.querySelector('.floating-cta-btn')?.addEventListener('click', () => {
     document.querySelector('#contacto')?.scrollIntoView({ behavior: 'smooth' });
   });
 }
 
-// ========== 8. CONTADOR ANIMADO DE ESTADÍSTICAS ==========
+// ========== 8. CONTADOR ANIMADO ==========
 function initCounterAnimation() {
   const stats = document.querySelectorAll('.stat-number');
   if (!stats.length) return;
-  
-  const animateCounter = (element, target) => {
-    const duration = 2000; // 2 segundos
-    const start = 0;
-    const increment = target / (duration / 16); // 60 FPS
-    let current = start;
-    
-    const updateCounter = () => {
+
+  const animateCounter = (el, target) => {
+    const increment = target / (2000 / 16);
+    let current = 0;
+    const tick = () => {
       current += increment;
       if (current < target) {
-        // Formatear según el tipo de dato
-        if (element.dataset.type === 'percent') {
-          element.textContent = Math.floor(current) + '%';
-        } else if (element.dataset.type === 'plus') {
-          element.textContent = '+' + Math.floor(current);
-        } else {
-          element.textContent = Math.floor(current);
-        }
-        requestAnimationFrame(updateCounter);
+        el.textContent = el.dataset.type === 'percent' ? Math.floor(current) + '%'
+                       : el.dataset.type === 'plus'    ? '+' + Math.floor(current)
+                       : Math.floor(current);
+        requestAnimationFrame(tick);
       } else {
-        // Valor final
-        if (element.dataset.type === 'percent') {
-          element.textContent = target + '%';
-        } else if (element.dataset.type === 'plus') {
-          element.textContent = '+' + target;
-        } else {
-          element.textContent = target;
-        }
+        el.textContent = el.dataset.type === 'percent' ? target + '%'
+                       : el.dataset.type === 'plus'    ? '+' + target
+                       : target;
       }
     };
-    
-    updateCounter();
+    tick();
   };
-  
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const element = entry.target;
-        const target = parseInt(element.dataset.target);
-        
-        // Agregar clase visible al contenedor
-        element.closest('.stat-item')?.classList.add('visible');
-        
-        // Animar contador
-        setTimeout(() => {
-          animateCounter(element, target);
-        }, 200);
-        
-        observer.unobserve(element);
+        const el = entry.target;
+        el.closest('.stat-item')?.classList.add('visible');
+        setTimeout(() => animateCounter(el, parseInt(el.dataset.target)), 200);
+        observer.unobserve(el);
       }
     });
   }, { threshold: 0.5 });
-  
-  stats.forEach(stat => observer.observe(stat));
+  stats.forEach(s => observer.observe(s));
 }
 
-// ========== 9. SCROLL REVEAL GENÉRICO ==========
+// ========== 9. SCROLL REVEAL ==========
 function initScrollReveal() {
-  const reveals = document.querySelectorAll('.reveal');
-  if (!reveals.length) return;
-  
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-        observer.unobserve(entry.target);
-      }
+      if (entry.isIntersecting) { entry.target.classList.add('active'); observer.unobserve(entry.target); }
     });
   }, { threshold: 0.1 });
-  
-  reveals.forEach(reveal => observer.observe(reveal));
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 }
 
-// ========== 10. TESTIMONIOS SCROLL ==========
+// ========== 10. TESTIMONIOS ==========
 function initTestimonios() {
-  const cards = document.querySelectorAll('.testimonio-card');
-  if (!cards.length) return;
-  
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
+    entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add('visible');
-        }, index * 150); // Delay escalonado
+        setTimeout(() => entry.target.classList.add('visible'), i * 150);
         observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.2 });
-  
-  cards.forEach(card => observer.observe(card));
+  document.querySelectorAll('.testimonio-card').forEach(c => observer.observe(c));
 }
 
-// ========== 11. AVATAR LOADER ==========
+// ========== 11. AVATAR — carga real de imagen ==========
 function initAvatar() {
   const avatar = document.querySelector('.hero-avatar');
   if (!avatar) return;
-  
-  // Simular carga (o esperar imagen real)
-  setTimeout(() => {
-    avatar.classList.add('loaded');
-  }, 300);
+  const show = () => avatar.classList.add('loaded');
+  if (avatar.complete && avatar.naturalWidth) {
+    show();
+  } else {
+    avatar.addEventListener('load',  show);
+    avatar.addEventListener('error', show);   // mostrar aunque falle
+    setTimeout(show, 800);                    // fallback de seguridad
+  }
 }
 
 // ========== INICIALIZACIÓN ==========
@@ -525,55 +395,46 @@ document.addEventListener('DOMContentLoaded', () => {
     createParticleTitle();
     createCodeLoom();
     initProyectos();
-    initFloatingCTA();        // Nuevo
-    initCounterAnimation();   // Nuevo
-    initScrollReveal();       // Nuevo
-    initTestimonios();        // Nuevo
-    initAvatar();             // Nuevo
+    initFloatingCTA();
+    initCounterAnimation();
+    initScrollReveal();
+    initTestimonios();
+    initAvatar();
   }, 100);
 });
 
 // ========== THEME TOGGLE ==========
 const themeToggle = document.querySelector('.theme-toggle');
-const body = document.body;
-
-const savedTheme = localStorage.getItem('theme') || 'dark';
-body.setAttribute('data-theme', savedTheme);
+const savedTheme  = localStorage.getItem('theme') || 'dark';
+document.body.setAttribute('data-theme', savedTheme);
 
 themeToggle?.addEventListener('click', () => {
-  const currentTheme = body.getAttribute('data-theme');
-  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-  
-  body.setAttribute('data-theme', newTheme);
+  const newTheme = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  document.body.setAttribute('data-theme', newTheme);
   localStorage.setItem('theme', newTheme);
 });
 
 // ========== MENÚ MÓVIL ==========
 const menuBurger = document.querySelector('.menu-burger');
-const navMenu = document.querySelector('.nav-menu');
+const navMenu    = document.querySelector('.nav-menu');
 
 menuBurger?.addEventListener('click', () => {
   navMenu?.classList.toggle('active');
   menuBurger.classList.toggle('active');
 });
 
-document.querySelectorAll('.nav-menu a').forEach(link => {
+document.querySelectorAll('.nav-menu a').forEach(link =>
   link.addEventListener('click', () => {
     navMenu?.classList.remove('active');
     menuBurger?.classList.remove('active');
-  });
-});
+  })
+);
 
 // ========== SMOOTH SCROLL ==========
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
+document.querySelectorAll('a[href^="#"]').forEach(anchor =>
+  anchor.addEventListener('click', function(e) {
     e.preventDefault();
     const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  });
-});
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  })
+);
