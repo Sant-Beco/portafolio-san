@@ -174,8 +174,8 @@
       </div>
       <div class="valor-card">
         <div class="valor-icon">⚒️</div>
-        <h3>Código que se Usa</h3>
-        <p>Cultural Expression, un proyecto colaborativo en producción con +50 usuarios reales</p>
+        <h3>Herramientas Propias</h3>
+        <p>Construí mis propias herramientas (como DeleteMeta) en vez de depender de servicios de terceros de dudosa confianza</p>
       </div>
       <div class="valor-card">
         <div class="valor-icon">🔥</div>
@@ -345,56 +345,38 @@
 
     <div class="proyectos-grid" id="proyectos-grid">
 
-      <!-- 1. Cultural Expression — DESTACADO (más impacto) -->
-      <article class="proyecto-card proyecto-featured" data-cat="django">
+      <!-- 1. Inspección de Vehículos (Misionales) — DESTACADO (en producción real) -->
+      <article class="proyecto-card proyecto-featured" data-cat="python">
         <div class="proyecto-badge proyecto-badge-featured">⭐ Destacado</div>
         <div class="proyecto-scan"></div>
-        
-        <!-- Galería de imágenes -->
-        <div class="proyecto-gallery">
-          <div class="gallery-main">
-            <img loading="lazy" src="img/inicio.jpg" alt="Cultural Expression - Página principal" onerror="this.src='img/placeholder-project.jpg'"/>
-            <div class="proyecto-overlay">
-              <a href="https://github.com/Sant-Beco/MejorandoExpression" target="_blank" class="btn-proyecto">Ver en GitHub</a>
-            </div>
-          </div>
-          <div class="gallery-thumbnails">
-            <img loading="lazy" src="img/inicio.jpg" alt="Cultural Expression - Vista 1" onerror="this.src='img/placeholder-project.jpg'"/>
-            <img loading="lazy" src="img/inicio.jpg" alt="Cultural Expression - Vista 2" onerror="this.src='img/placeholder-project.jpg'"/>
+        <div class="proyecto-img proyecto-img-horizontal">
+          <img loading="lazy" src="img/misionales.png" alt="Inspección de Vehículos" onerror="this.src='img/placeholder-project.jpg'"/>
+          <div class="proyecto-overlay">
+            <a href="https://github.com/Sant-Beco" target="_blank" class="btn-proyecto">Ver en GitHub</a>
+            <a href="misionales.html" target="_blank" class="btn-proyecto">Documentación completa</a>
           </div>
         </div>
-        
         <div class="proyecto-info">
-          <h3>🎨 Cultural Expression</h3>
+          <h3>🚗 Inspección de Vehículos</h3>
           <div class="proyecto-stats">
-            <span class="stat-highlight">👥 Proyecto en equipo</span>
-            <span>+50 usuarios</span>
-            <span>CRUD completo</span>
-            <span>Visualización</span>
+            <span class="stat-highlight">En uso activo</span>
+            <span>PDF automático</span><span>Preoperacional</span><span>7 capas de seguridad</span>
           </div>
-          <p>Plataforma web colaborativa (proyecto en equipo, 5 desarrolladores) para conectar artistas y promotores culturales con su público. Resuelve la dispersión de eventos culturales en distintas redes sociales, centralizando autenticación, publicación de eventos y búsqueda por categoría o ubicación en un solo lugar.</p>
+          <p>Reemplaza el papeleo físico de inspección preoperacional de vehículos en Incubant: el conductor llena el formulario desde el celular, firma digitalmente, y el sistema genera el PDF automáticamente. Lo diseñé y desarrollé por iniciativa propia — actualmente en uso activo en la empresa, con autenticación, roles de conductor/admin y auditoría de acciones.</p>
           <div class="proyecto-features">
-            <div class="feature-item">✅ +50 registros activos</div>
-            <div class="feature-item">✅ Panel de administración</div>
-            <div class="feature-item">✅ Búsqueda avanzada</div>
-          </div>
-          <div class="proyecto-features">
-            <h3>Desarrolladores</h3>
-            <div class="feature-item">Sebastian Vergara Toro</div>
-            <div class="feature-item">Kelly Rendon</div>
-            <div class="feature-item">Frank G</div>
-            <div class="feature-item">Miguel clavijo</div>
-            <div class="feature-item">Santiago Bedoya Corrales</div>
+            <div class="feature-item">✅ En producción desde 2025</div>
+            <div class="feature-item">✅ PINs con bcrypt, rate limiting</div>
+            <div class="feature-item">✅ Documentación técnica completa</div>
           </div>
           <div class="proyecto-tech">
-            <span>Django</span><span>MySQL</span><span>HTML/CSS</span><span>Plotly</span><span>Bootstrap</span>
+            <span>FastAPI</span><span>Python</span><span>MySQL</span><span>WeasyPrint</span><span>Nginx</span>
           </div>
         </div>
       </article>
 
       <!-- 2. CIPHER — Documental de Ciberseguridad -->
-      <article class="proyecto-card" data-cat="python">
-        <div class="proyecto-badge">Python</div>
+      <article class="proyecto-card" data-cat="frontend">
+        <div class="proyecto-badge">Frontend</div>
         <div class="proyecto-scan"></div>
         <div class="proyecto-img">
           <img loading="lazy" src="img/ciberseguridad.png" alt="CIPHER Documental Ciberseguridad" onerror="this.src='img/placeholder-project.jpg'"/>
@@ -405,12 +387,13 @@
         <div class="proyecto-info">
           <h3>🔐 CIPHER — Documental</h3>
           <div class="proyecto-stats">
-            <span class="stat-highlight">Deploy live</span>
+            <span>Capítulo 1 de N</span>
+            <span>En construcción</span>
             <span>Terminal UI</span>
           </div>
-          <p>Documental interactivo pensado para que alguien sin formación técnica entienda, de forma visual, cómo ha evolucionado la ciberseguridad y por qué le afecta hoy — con datos reales de impacto económico ($9.5T en daños anuales), no solo teoría.</p>
+          <p>Documental personal de aprendizaje sobre ciberseguridad: historia real desde ARPANET, figuras clave como Bruce Schneier y Kevin Mitnick, e impacto económico global ($9.5T en daños anuales). Publicado capítulo a capítulo mientras aprendo — el primero ya está en línea, los siguientes (redes, criptografía, ethical hacking) están en camino.</p>
           <div class="proyecto-tech">
-            <span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>HTML/CSS</span>
+            <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
           </div>
         </div>
       </article>
@@ -459,26 +442,38 @@
         </div>
       </article>
 
-      <!-- 5. Inspección de Vehículos -->
-      <article class="proyecto-card" data-cat="python">
-        <div class="proyecto-badge">Python</div>
+      <!-- 5. Cultural Expression — Proyecto académico final ADSO -->
+      <article class="proyecto-card" data-cat="django">
+        <div class="proyecto-badge">Django</div>
         <div class="proyecto-scan"></div>
-        <div class="proyecto-img proyecto-img-horizontal">
-          <img loading="lazy" src="img/misionales.png" alt="Inspección de Vehículos" onerror="this.src='img/placeholder-project.jpg'"/>
+        <div class="proyecto-img">
+          <img loading="lazy" src="img/inicio.jpg" alt="Cultural Expression" onerror="this.src='img/placeholder-project.jpg'"/>
           <div class="proyecto-overlay">
-            <a href="https://github.com/Sant-Beco" target="_blank" class="btn-proyecto">Ver en GitHub</a>
-            <a href="misionales.html" target="_blank" class="btn-proyecto">presentación web</a>
+            <a href="https://github.com/Sant-Beco/MejorandoExpression" target="_blank" class="btn-proyecto">Ver en GitHub</a>
           </div>
         </div>
         <div class="proyecto-info">
-          <h3>🚗 Inspección de Vehículos</h3>
+          <h3>🎨 Cultural Expression</h3>
           <div class="proyecto-stats">
-            <span class="stat-highlight">En uso activo</span>
-            <span>PDF automático</span><span>Preoperacional</span>
+            <span>👥 Proyecto en equipo (5)</span>
+            <span>Proyecto final SENA</span>
           </div>
-          <p>Reemplaza el papeleo físico de inspección preoperacional de vehículos en Incubant: el conductor llena el formulario desde el celular, firma digitalmente, y el sistema genera el PDF automáticamente. Lo diseñé y desarrollé por iniciativa propia — actualmente en uso activo en la empresa.</p>
+          <p>Proyecto final de la Tecnología en Análisis y Desarrollo de Software (SENA), hecho en equipo de 5 personas: plataforma para conectar artistas y promotores culturales. Se probó entre compañeros de clase — no llegó a tener usuarios reales ni sigue desplegada, pero fue donde más aprendimos de trabajo en equipo, autenticación y bases de datos relacionales.</p>
+          <div class="proyecto-features">
+            <div class="feature-item">✅ Autenticación de usuarios</div>
+            <div class="feature-item">✅ CRUD de eventos</div>
+            <div class="feature-item">✅ Búsqueda por categoría/ubicación</div>
+          </div>
+          <div class="proyecto-features">
+            <h3>Desarrolladores</h3>
+            <div class="feature-item">Sebastian Vergara Toro</div>
+            <div class="feature-item">Kelly Rendon</div>
+            <div class="feature-item">Frank G</div>
+            <div class="feature-item">Miguel clavijo</div>
+            <div class="feature-item">Santiago Bedoya Corrales</div>
+          </div>
           <div class="proyecto-tech">
-            <span>FastAPI</span><span>Python</span><span>MySQL</span><span>WeasyPrint</span>
+            <span>Django</span><span>MySQL</span><span>HTML/CSS</span><span>Plotly</span><span>Bootstrap</span>
           </div>
         </div>
       </article>
